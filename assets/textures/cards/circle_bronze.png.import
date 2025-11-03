@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3psuimyrex0n"
-path="res://.godot/imported/pixelCardAssest_V01.png-846a09e4f0cf51cdee4afa4890fa21c1.ctex"
+uid="uid://blophysk7kyrq"
+path="res://.godot/imported/circle_bronze.png-668fb9b40b2abfec01d80a33e3324614.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/pixelCardAssest_V01.png"
-dest_files=["res://.godot/imported/pixelCardAssest_V01.png-846a09e4f0cf51cdee4afa4890fa21c1.ctex"]
+source_file="res://assets/textures/cards/circle_bronze.png"
+dest_files=["res://.godot/imported/circle_bronze.png-668fb9b40b2abfec01d80a33e3324614.ctex"]
 
 [params]
 

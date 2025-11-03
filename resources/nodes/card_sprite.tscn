@@ -1,11 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://by0e5xy27velf"]
+[gd_scene load_steps=10 format=3 uid="uid://by0e5xy27velf"]
 
 [ext_resource type="Script" uid="uid://dyp34aegyqmi" path="res://scripts/card_sprite.gd" id="1_kk3lg"]
-[ext_resource type="Texture2D" uid="uid://b3psuimyrex0n" path="res://assets/textures/pixelCardAssest_V01.png" id="2_ui15i"]
+[ext_resource type="Script" uid="uid://o601mm4qckiy" path="res://scripts/card.gd" id="2_2bq8n"]
+[ext_resource type="Texture2D" uid="uid://b3psuimyrex0n" path="res://assets/textures/cards/pixelCardAssest_V01.png" id="2_ui15i"]
+[ext_resource type="Texture2D" uid="uid://blophysk7kyrq" path="res://assets/textures/cards/circle_bronze.png" id="4_2bq8n"]
+
+[sub_resource type="Resource" id="Resource_2bq8n"]
+script = ExtResource("2_2bq8n")
+name = "Test Card"
+bg_color = Color(0.4862745, 1, 1, 1)
+metadata/_custom_type_script = "uid://o601mm4qckiy"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2bq8n"]
 atlas = ExtResource("2_ui15i")
 region = Rect2(14, 476, 94, 122)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qrte"]
+atlas = ExtResource("2_ui15i")
+region = Rect2(17, 299, 97, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vo76q"]
+atlas = ExtResource("2_ui15i")
+region = Rect2(16, 273, 96, 18)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hdd3a"]
 atlas = ExtResource("2_ui15i")
@@ -13,9 +29,56 @@ region = Rect2(115, 473, 100, 128)
 
 [node name="CardSprite" type="Node2D"]
 script = ExtResource("1_kk3lg")
+card = SubResource("Resource_2bq8n")
 
 [node name="Bg" type="Sprite2D" parent="."]
+self_modulate = Color(0.4862745, 1, 1, 1)
+scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_2bq8n")
 
+[node name="Circle" type="Sprite2D" parent="."]
+position = Vector2(0, -40)
+scale = Vector2(2, 2)
+texture = ExtResource("4_2bq8n")
+
+[node name="BottomPanel" type="Sprite2D" parent="."]
+position = Vector2(0, 29)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_5qrte")
+
+[node name="Name" type="RichTextLabel" parent="BottomPanel"]
+offset_left = -46.0
+offset_top = -6.0
+offset_right = 138.0
+offset_bottom = 18.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "Fire Spirit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TopPanel" type="Sprite2D" parent="."]
+position = Vector2(0, -98)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_vo76q")
+
+[node name="Name" type="RichTextLabel" parent="TopPanel"]
+offset_left = -46.0
+offset_top = -6.0
+offset_right = 138.0
+offset_bottom = 18.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "Test Card"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Border" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_hdd3a")
