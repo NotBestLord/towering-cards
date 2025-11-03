@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://by0e5xy27velf"]
+
+[ext_resource type="Script" uid="uid://dyp34aegyqmi" path="res://scripts/card_sprite.gd" id="1_kk3lg"]
+[ext_resource type="Texture2D" uid="uid://b3psuimyrex0n" path="res://assets/textures/pixelCardAssest_V01.png" id="2_ui15i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2bq8n"]
+atlas = ExtResource("2_ui15i")
+region = Rect2(14, 476, 94, 122)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdd3a"]
+atlas = ExtResource("2_ui15i")
+region = Rect2(115, 473, 100, 128)
+
+[node name="CardSprite" type="Node2D"]
+script = ExtResource("1_kk3lg")
+
+[node name="Bg" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_2bq8n")
+
+[node name="Border" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_hdd3a")

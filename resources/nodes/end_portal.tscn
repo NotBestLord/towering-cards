@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://d3cr1olwfquq6"]
 
-[ext_resource type="Texture2D" uid="uid://dftvpx12enkek" path="res://assets/textures/portal.png" id="1_6epfu"]
+[ext_resource type="Texture2D" uid="uid://dftvpx12enkek" path="res://assets/textures/map/portal.png" id="1_6epfu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_atavg"]
 atlas = ExtResource("1_6epfu")
@@ -65,7 +65,7 @@ _data = {
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_1cppd")
 autoplay = "default"
-frame_progress = 0.48343122
+frame_progress = 0.5333495
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
