@@ -23,6 +23,11 @@ func _ready() -> void:
 		comp.hide()
 
 
+func _process(delta: float) -> void:
+	for comp in _get_components():
+		comp._tower_process(delta)
+
+
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_PREDELETE:
 		for comp in _get_components():

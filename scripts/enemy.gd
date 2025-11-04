@@ -5,4 +5,4 @@ extends Resource
 @export var sprite : Texture2D
 @export var health := 1.
 @export var speed := 1.
-#@export var TBD
+#@export var spawn_enemies TBD

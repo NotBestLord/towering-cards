@@ -14,7 +14,17 @@ func _ready() -> void:
 
 
 func get_enemy_target(tower : TowerNode, px_range : float) -> EnemyNode:
-	return null
+	var in_range := living_enemies.filter(
+		func(enemy : EnemyNode):
+			return tower.global_position.distance_to(enemy.global_position) <= px_range
+	)
+	in_range.sort_custom(
+		func(a, b):
+		if a.progress > b.progress:
+			return true
+		return false
+	)
+	return in_range.pop_front()
 
 
 func _load_enemies() -> void:

@@ -2,7 +2,7 @@ class_name TowerShootComponent
 extends TowerComponent
 
 
-@export var range := 2.
+@export var tile_range := 2.
 @export var damage := 1.
 @export var attack_rate := 1.
 
@@ -17,6 +17,7 @@ extends TowerComponent
 @export var bullet_multishot_spread := 15.
 
 
+var target : EnemyNode
 var timer := 0.
 
 
@@ -24,17 +25,22 @@ func _tower_process(delta : float) -> void:
 	var attack_delay := 1 / attack_rate
 	timer += delta
 	if timer >= attack_delay:
-		shoot()
+		target = Global.get_enemy_target(tower, tile_range * 16.)
+		if is_instance_valid(target):
+			shoot()
+			var a := get_angle()
+			while a < 0:
+				a += 90
+			tower.flip_h = a > 90 and a < 270
 		timer = 0
 
 
 func _draw(comp_node : TowerComponentNode) -> void:
-	var r := range * 16
+	var r := tile_range * 16
 	comp_node.draw_circle(Vector2.ZERO, r - 1, Color(0.4,0.4,0.4,0.6), false, 2)
 
 
 func get_angle() -> float:
-	var target := Global.get_enemy_target(tower, range * 16.)
 	if not is_instance_valid(target):
 		return 0.
 	return rad_to_deg(tower.global_position.angle_to_point(target.global_position))
@@ -48,9 +54,7 @@ func shoot() -> void:
 
 
 func shoot_single(angle := -1.) -> void:
-	if not is_instance_valid(bullet):
-		printerr("Missing Bullet Scene")
-		return
+	assert(is_instance_valid(bullet), "Missing Bullet Scene")
 	if angle == -1:
 		angle = get_angle()
 	
@@ -71,6 +75,7 @@ func shoot_single(angle := -1.) -> void:
 
 
 func shoot_multi(amount := 1, angle := -1.) -> void:
+	assert(is_instance_valid(bullet), "Missing Bullet Scene")
 	assert(amount > 0, "Bullet amount must be > 0")
 	
 	if angle == -1:
