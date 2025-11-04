@@ -23,3 +23,7 @@ func _round_begin() -> void:
 
 func _round_end() -> void:
 	pass
+
+
+func _draw(comp_node : TowerComponentNode) -> void:
+	pass

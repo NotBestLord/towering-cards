@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://by0e5xy27velf"]
+[gd_scene load_steps=13 format=3 uid="uid://by0e5xy27velf"]
 
 [ext_resource type="Script" uid="uid://dyp34aegyqmi" path="res://scripts/card_sprite.gd" id="1_kk3lg"]
 [ext_resource type="Script" uid="uid://o601mm4qckiy" path="res://scripts/card.gd" id="2_2bq8n"]
+[ext_resource type="Script" uid="uid://ca3h7tctf7wdk" path="res://scripts/tower/tower_component.gd" id="2_hdd3a"]
 [ext_resource type="Texture2D" uid="uid://b3psuimyrex0n" path="res://assets/textures/cards/pixelCardAssest_V01.png" id="2_ui15i"]
 [ext_resource type="Texture2D" uid="uid://blophysk7kyrq" path="res://assets/textures/cards/circle_bronze.png" id="4_2bq8n"]
 

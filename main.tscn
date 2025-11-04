@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://bdfo2ktxggpi6"]
+
+[ext_resource type="PackedScene" uid="uid://dn8le4drpbl3f" path="res://resources/maps/forest_map_1.tscn" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://57vwbiskmsxk" path="res://assets/textures/icons/icons_tilemap.png" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://c8k4gckjopski" path="res://resources/nodes/tower.tscn" id="2_lquwl"]
+[ext_resource type="Texture2D" uid="uid://d2v8ippkorc8k" path="res://assets/textures/characters/Basic 1x.png" id="3_h2yge"]
+[ext_resource type="Resource" uid="uid://brs0us6dwshep" path="res://resources/cards/fire_spirit.tres" id="5_7mycd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bvp3"]
+atlas = ExtResource("2_h2yge")
+region = Rect2(224, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lquwl"]
+atlas = ExtResource("3_h2yge")
+region = Rect2(74, 1, 13, 16)
+
+[node name="main" type="Node2D"]
+
+[node name="ForestMap" parent="." instance=ExtResource("1_0xm2m")]
+
+[node name="Tower" parent="." instance=ExtResource("2_lquwl")]
+position = Vector2(-8, 24)
+card = ExtResource("5_7mycd")
+
+[node name="PlaceBlock" type="Sprite2D" parent="."]
+position = Vector2(8, 24)
+texture = SubResource("AtlasTexture_1bvp3")
+
+[node name="TowerSprite" type="Sprite2D" parent="PlaceBlock"]
+texture = SubResource("AtlasTexture_lquwl")
+offset = Vector2(0, -6)

@@ -30,5 +30,11 @@ func _round_end() -> void:
 	assert(is_instance_valid(component), "Component Invalid")
 	component._round_end()
 
+
+func _draw() -> void:
+	assert(is_instance_valid(component), "Component Invalid")
+	component._draw(self)
+
+
 func get_tower() -> TowerNode:
 	return get_parent() as TowerNode

@@ -5,7 +5,7 @@ extends Resource
 @export_category("Visual")
 @export var name : String
 @export_multiline var description : String
-@export var sprite : Texture
+@export var sprite : Texture2D
 @export_color_no_alpha var bg_color : Color
 
 @export_category("Mechanics")
@@ -18,3 +18,4 @@ func create_components(tower : TowerNode) -> void:
 		var node := TowerComponentNode.new()
 		node.component = comp.duplicate()
 		tower.add_child(node)
+		tower.move_child(node, 0)
