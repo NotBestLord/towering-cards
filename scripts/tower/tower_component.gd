@@ -9,7 +9,7 @@ func _tower_ready() -> void:
 	pass
 
 
-func _tower_process(delta : float) -> void:
+func _tower_process(_delta : float) -> void:
 	pass
 
 
@@ -25,5 +25,5 @@ func _round_end() -> void:
 	pass
 
 
-func _draw(comp_node : TowerComponentNode) -> void:
+func _draw(_comp_node : TowerComponentNode) -> void:
 	pass

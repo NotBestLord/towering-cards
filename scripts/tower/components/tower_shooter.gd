@@ -5,29 +5,72 @@ extends TowerComponent
 @export var range := 2.
 @export var damage := 1.
 @export var attack_rate := 1.
-@export var bullet_speed := 32.
+
+@export_category("Bullet")
 @export var bullet : PackedScene
+@export var bullet_count := 1
+@export_range(0,180) var bullet_angle_variance : int = 0
+@export var bullet_delete_after : float = 30
+@export var bullet_scale := 1.
+@export var bullet_speed := 64.
+@export var bullet_pierce := 0
+@export var bullet_multishot_spread := 15.
 
 
 var timer := 0.
-
-
-func _tower_ready() -> void:
-	pass
 
 
 func _tower_process(delta : float) -> void:
 	var attack_delay := 1 / attack_rate
 	timer += delta
 	if timer >= attack_delay:
-		## TBD ATTACK
+		shoot()
 		timer = 0
-
-
-func _tower_predelete() -> void:
-	pass
 
 
 func _draw(comp_node : TowerComponentNode) -> void:
 	var r := range * 16
 	comp_node.draw_circle(Vector2.ZERO, r - 1, Color(0.4,0.4,0.4,0.6), false, 2)
+
+
+func get_angle() -> float:
+	return 0.
+
+
+func shoot() -> void:
+	if bullet_count == 1:
+		shoot_single()
+	else:
+		shoot_multi(bullet_count)
+
+
+func shoot_single(angle := -1.) -> void:
+	if not is_instance_valid(bullet):
+		printerr("Missing Bullet Scene")
+		return
+	if angle == -1:
+		angle = get_angle()
+	
+	var new_bullet = bullet.instantiate()
+	#new_bullet.on_hit.connect()
+	new_bullet.speed = bullet_speed
+	new_bullet.size = bullet_scale
+	new_bullet.delete_after = bullet_delete_after
+	new_bullet.pierce = bullet_pierce
+	new_bullet.angle = angle
+	
+	tower.add_child(new_bullet)
+	new_bullet.global_position = tower.global_position
+
+
+func shoot_multi(amount := 1, angle := -1.) -> void:
+	assert(amount > 0, "Bullet amount must be > 0")
+	
+	if angle == -1:
+		angle = get_angle()
+	
+	var angle_increment := bullet_multishot_spread / amount
+	var start_angle := angle - (bullet_multishot_spread / 2.)
+	
+	for i in amount:
+		shoot_single(start_angle + (angle_increment * i))

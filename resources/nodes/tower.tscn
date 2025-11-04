@@ -29,8 +29,8 @@ texture = SubResource("AtlasTexture_fuc7x")
 offset = Vector2(0, -6)
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 128
-collision_mask = 128
+collision_layer = 132
+collision_mask = 132
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -6)

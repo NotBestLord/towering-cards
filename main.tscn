@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bdfo2ktxggpi6"]
+[gd_scene load_steps=9 format=3 uid="uid://bdfo2ktxggpi6"]
 
 [ext_resource type="PackedScene" uid="uid://dn8le4drpbl3f" path="res://resources/maps/forest_map_1.tscn" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://57vwbiskmsxk" path="res://assets/textures/icons/icons_tilemap.png" id="2_h2yge"]
@@ -10,9 +10,12 @@
 atlas = ExtResource("2_h2yge")
 region = Rect2(224, 80, 16, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(12, 12)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_lquwl"]
 atlas = ExtResource("3_h2yge")
-region = Rect2(74, 1, 13, 16)
+region = Rect2(73, 0, 15, 18)
 
 [node name="main" type="Node2D"]
 
@@ -26,6 +29,13 @@ card = ExtResource("5_7mycd")
 position = Vector2(8, 24)
 texture = SubResource("AtlasTexture_1bvp3")
 
+[node name="Area2D" type="Area2D" parent="PlaceBlock"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlaceBlock/Area2D"]
+shape = SubResource("RectangleShape2D_lquwl")
+
 [node name="TowerSprite" type="Sprite2D" parent="PlaceBlock"]
 texture = SubResource("AtlasTexture_lquwl")
-offset = Vector2(0, -6)
+offset = Vector2(0, -7)
