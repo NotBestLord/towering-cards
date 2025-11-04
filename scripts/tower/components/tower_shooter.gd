@@ -34,7 +34,10 @@ func _draw(comp_node : TowerComponentNode) -> void:
 
 
 func get_angle() -> float:
-	return 0.
+	var target := Global.get_enemy_target(tower, range * 16.)
+	if not is_instance_valid(target):
+		return 0.
+	return rad_to_deg(tower.global_position.angle_to_point(target.global_position))
 
 
 func shoot() -> void:

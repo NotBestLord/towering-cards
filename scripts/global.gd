@@ -13,7 +13,7 @@ func _ready() -> void:
 	_load_enemies()
 
 
-func get_enemy_target(tower : TowerNode, range : float) -> EnemyNode:
+func get_enemy_target(tower : TowerNode, px_range : float) -> EnemyNode:
 	return null
 
 
