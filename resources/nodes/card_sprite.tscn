@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://by0e5xy27velf"]
+[gd_scene load_steps=12 format=3 uid="uid://by0e5xy27velf"]
 
 [ext_resource type="Script" uid="uid://dyp34aegyqmi" path="res://scripts/card_sprite.gd" id="1_kk3lg"]
 [ext_resource type="Script" uid="uid://o601mm4qckiy" path="res://scripts/card.gd" id="2_2bq8n"]
@@ -8,12 +8,17 @@
 [sub_resource type="Resource" id="Resource_2bq8n"]
 script = ExtResource("2_2bq8n")
 name = "Test Card"
-bg_color = Color(0.4862745, 1, 1, 1)
+bg_color = Color(0.63467675, 0.6195001, 0.94518465, 1)
+cost = 2
 metadata/_custom_type_script = "uid://o601mm4qckiy"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2bq8n"]
 atlas = ExtResource("2_ui15i")
 region = Rect2(14, 476, 94, 122)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtfls"]
+atlas = ExtResource("2_ui15i")
+region = Rect2(445, 341, 95, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vo76q"]
 atlas = ExtResource("2_ui15i")
@@ -22,6 +27,10 @@ region = Rect2(16, 273, 96, 18)
 [sub_resource type="AtlasTexture" id="AtlasTexture_5qrte"]
 atlas = ExtResource("2_ui15i")
 region = Rect2(17, 299, 97, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6n3tq"]
+atlas = ExtResource("2_ui15i")
+region = Rect2(483, 187, 8, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hdd3a"]
 atlas = ExtResource("2_ui15i")
@@ -32,12 +41,17 @@ script = ExtResource("1_kk3lg")
 card = SubResource("Resource_2bq8n")
 
 [node name="Bg" type="Sprite2D" parent="."]
-self_modulate = Color(0.4862745, 1, 1, 1)
+self_modulate = Color(0.63467675, 0.6195001, 0.94518465, 1)
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_2bq8n")
 
+[node name="BgFinish" type="Sprite2D" parent="."]
+position = Vector2(1, -104)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_rtfls")
+
 [node name="Circle" type="Sprite2D" parent="."]
-position = Vector2(0, -40)
+position = Vector2(0, -34)
 scale = Vector2(2, 2)
 texture = ExtResource("4_2bq8n")
 
@@ -52,6 +66,7 @@ offset_top = -6.0
 offset_right = 138.0
 offset_bottom = 18.0
 scale = Vector2(0.5, 0.5)
+mouse_filter = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/normal_font_size = 8
@@ -60,25 +75,58 @@ text = "Test Card"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BottomPanel" type="Sprite2D" parent="."]
-position = Vector2(0, 29)
+[node name="BottomPanel" type="NinePatchRect" parent="."]
+offset_left = -90.0
+offset_top = 12.000004
+offset_bottom = 65.0
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_5qrte")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
 
 [node name="Description" type="RichTextLabel" parent="BottomPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_right = 91.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "
+Pu Tex Here"
+
+[node name="Energy" type="Sprite2D" parent="."]
+position = Vector2(0, 12)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_6n3tq")
+
+[node name="EnergyLabel" type="RichTextLabel" parent="Energy"]
 offset_left = -46.0
 offset_top = -6.0
 offset_right = 138.0
 offset_bottom = 18.0
 scale = Vector2(0.5, 0.5)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+mouse_filter = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6627451)
+theme_override_constants/shadow_outline_size = 2
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
-text = "Pu Tex Here"
+text = "2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Border" type="Sprite2D" parent="."]
+self_modulate = Color(0.63467675, 0.6195001, 0.94518465, 1)
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_hdd3a")
