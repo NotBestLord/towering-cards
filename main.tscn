@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdfo2ktxggpi6"]
+[gd_scene load_steps=14 format=3 uid="uid://bdfo2ktxggpi6"]
 
 [ext_resource type="PackedScene" uid="uid://dn8le4drpbl3f" path="res://resources/maps/forest_map_1.tscn" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://57vwbiskmsxk" path="res://assets/textures/icons/icons_tilemap.png" id="2_h2yge"]
-[ext_resource type="PackedScene" uid="uid://c8k4gckjopski" path="res://resources/nodes/tower.tscn" id="2_lquwl"]
 [ext_resource type="Texture2D" uid="uid://d2v8ippkorc8k" path="res://assets/textures/characters/Basic 1x.png" id="3_h2yge"]
-[ext_resource type="Resource" uid="uid://brs0us6dwshep" path="res://resources/cards/fire_spirit.tres" id="5_7mycd"]
+[ext_resource type="Texture2D" uid="uid://b3psuimyrex0n" path="res://assets/textures/cards/pixelCardAssest_V01.png" id="5_7mycd"]
+[ext_resource type="Script" uid="uid://cpibx7br3x7jk" path="res://scripts/energy_bar.gd" id="5_272bh"]
 [ext_resource type="Script" uid="uid://dtvxeds64wmgf" path="res://scripts/hand.gd" id="6_7mycd"]
+[ext_resource type="FontFile" uid="uid://i02h8cy1ebax" path="res://assets/fonts/PixelOperator8.ttf" id="6_272bh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1bvp3"]
 atlas = ExtResource("2_h2yge")
@@ -18,20 +19,31 @@ size = Vector2(12, 12)
 atlas = ExtResource("3_h2yge")
 region = Rect2(73, 0, 15, 18)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mycd"]
+atlas = ExtResource("2_h2yge")
+region = Rect2(275, 98, 10, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_272bh"]
+atlas = ExtResource("2_h2yge")
+region = Rect2(275, 130, 10, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vw27"]
+atlas = ExtResource("5_7mycd")
+region = Rect2(483, 187, 8, 12)
+
 [node name="main" type="Node2D"]
 
 [node name="ForestMap" parent="." instance=ExtResource("1_0xm2m")]
 
-[node name="Tower" parent="." instance=ExtResource("2_lquwl")]
-position = Vector2(-8, 24)
-card = ExtResource("5_7mycd")
+[node name="EnemyContainer" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="PlaceBlock" type="Sprite2D" parent="."]
-position = Vector2(8, 24)
+position = Vector2(640, 720)
 texture = SubResource("AtlasTexture_1bvp3")
 
 [node name="Area2D" type="Area2D" parent="PlaceBlock"]
-collision_layer = 0
+collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlaceBlock/Area2D"]
@@ -43,7 +55,54 @@ offset = Vector2(0, -7)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Hand" type="Node2D" parent="CanvasLayer"]
+[node name="Hand" type="Node2D" parent="CanvasLayer" node_paths=PackedStringArray("place_block", "place_block_area", "place_block_tower")]
 position = Vector2(640, 720)
 script = ExtResource("6_7mycd")
+place_block = NodePath("../../PlaceBlock")
+place_block_area = NodePath("../../PlaceBlock/Area2D")
+place_block_tower = NodePath("../../PlaceBlock/TowerSprite")
 metadata/_custom_type_script = "uid://dtvxeds64wmgf"
+
+[node name="EnergyBar" type="TextureProgressBar" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -128.0
+offset_top = 8.0
+offset_right = 128.0
+offset_bottom = 48.0
+grow_horizontal = 2
+mouse_filter = 2
+max_value = 10.0
+step = 0.1
+value = 10.0
+nine_patch_stretch = true
+stretch_margin_left = 4
+stretch_margin_top = 4
+stretch_margin_right = 4
+stretch_margin_bottom = 4
+texture_under = SubResource("AtlasTexture_7mycd")
+texture_progress = SubResource("AtlasTexture_272bh")
+script = ExtResource("5_272bh")
+
+[node name="Energy" type="Sprite2D" parent="CanvasLayer/EnergyBar"]
+position = Vector2(254, 20)
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_5vw27")
+
+[node name="EnergyLabel" type="RichTextLabel" parent="CanvasLayer/EnergyBar/Energy"]
+offset_left = -46.5
+offset_top = -6.0
+offset_right = 137.5
+offset_bottom = 18.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6627451)
+theme_override_constants/shadow_outline_size = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("6_272bh")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
