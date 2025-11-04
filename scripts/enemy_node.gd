@@ -11,14 +11,26 @@ extends Node2D
 @onready var shape := $Area2D/CollisionShape2D
 
 
+var progress := 0.
 var health := 0.
 var speed := 0.
 
 
 func _ready() -> void:
+	Global.living_enemies.append(self)
 	health = enemy.health
 	speed = enemy.speed
 	_update()
+
+
+func _process(delta: float) -> void:
+	position = EnemyPath.current.curve.sample_baked(progress)
+	progress += delta * speed * 16
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_PREDELETE:
+		Global.living_enemies.erase(self)
 
 
 func _update() -> void:

@@ -3,6 +3,7 @@ extends Node
 
 var energy := 10.
 var max_energy := 10.
+var living_enemies : Array[EnemyNode] = []
 
 
 var enemies : Dictionary[String, Enemy] = {}
@@ -10,6 +11,10 @@ var enemies : Dictionary[String, Enemy] = {}
 
 func _ready() -> void:
 	_load_enemies()
+
+
+func get_enemy_target(tower : TowerNode, range : float) -> EnemyNode:
+	return null
 
 
 func _load_enemies() -> void:
