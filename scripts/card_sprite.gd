@@ -15,4 +15,7 @@ func _update() -> void:
 	$Bg.self_modulate = card.bg_color
 	$Border.self_modulate = card.bg_color
 	$TopPanel/Name.text = card.name.capitalize()
+	$BottomPanel/Description.text = card.description
 	$Energy/EnergyLabel.text = "%d" % card.cost
+	$TowerSprite.texture = card.sprite
+	$TowerSprite.offset.y = -card.sprite.get_height() / 2. + 2

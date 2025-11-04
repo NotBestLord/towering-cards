@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc2ou50k7bnoa"]
+
+[ext_resource type="PackedScene" uid="uid://by0e5xy27velf" path="res://resources/nodes/card_sprite.tscn" id="1_1a7xu"]
+[ext_resource type="Script" uid="uid://c46a70po7uq3t" path="res://scripts/card_in_hand.gd" id="1_6diq7"]
+
+[node name="CardInHand" type="Node2D"]
+script = ExtResource("1_6diq7")
+
+[node name="CardSprite" parent="." instance=ExtResource("1_1a7xu")]
+
+[node name="Area2D" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -100.0
+offset_top = -128.0
+offset_right = 100.0
+offset_bottom = 128.0
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_mouse_exited"]

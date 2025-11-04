@@ -22,6 +22,8 @@ region = Rect2(73, 0, 15, 18)
 [resource]
 script = ExtResource("2_n1crg")
 name = "Fire Spirit"
+description = "Shoots fireballs at nearby enemies
+Dissipates after 3 Rounds"
 sprite = SubResource("AtlasTexture_5382k")
 bg_color = Color(1, 0.19215687, 0, 1)
 components = Array[ExtResource("1_5382k")]([SubResource("Resource_0byvv"), SubResource("Resource_h42rt")])

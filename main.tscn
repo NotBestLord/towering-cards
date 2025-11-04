@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bdfo2ktxggpi6"]
+[gd_scene load_steps=10 format=3 uid="uid://bdfo2ktxggpi6"]
 
 [ext_resource type="PackedScene" uid="uid://dn8le4drpbl3f" path="res://resources/maps/forest_map_1.tscn" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://57vwbiskmsxk" path="res://assets/textures/icons/icons_tilemap.png" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c8k4gckjopski" path="res://resources/nodes/tower.tscn" id="2_lquwl"]
 [ext_resource type="Texture2D" uid="uid://d2v8ippkorc8k" path="res://assets/textures/characters/Basic 1x.png" id="3_h2yge"]
 [ext_resource type="Resource" uid="uid://brs0us6dwshep" path="res://resources/cards/fire_spirit.tres" id="5_7mycd"]
+[ext_resource type="Script" uid="uid://dtvxeds64wmgf" path="res://scripts/hand.gd" id="6_7mycd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1bvp3"]
 atlas = ExtResource("2_h2yge")
@@ -39,3 +40,10 @@ shape = SubResource("RectangleShape2D_lquwl")
 [node name="TowerSprite" type="Sprite2D" parent="PlaceBlock"]
 texture = SubResource("AtlasTexture_lquwl")
 offset = Vector2(0, -7)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Hand" type="Node2D" parent="CanvasLayer"]
+position = Vector2(640, 720)
+script = ExtResource("6_7mycd")
+metadata/_custom_type_script = "uid://dtvxeds64wmgf"
