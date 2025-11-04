@@ -19,6 +19,16 @@ func _notification(what: int) -> void:
 			comp._tower_predelete()
 
 
+func start_round() -> void:
+	for comp in _get_components():
+		comp._round_begin()
+
+
+func end_round() -> void:
+	for comp in _get_components():
+		comp._round_over()
+
+
 func _get_components() -> Array[TowerComponentNode]:
 	var arr : Array[TowerComponentNode] = []
 	for node in get_children():

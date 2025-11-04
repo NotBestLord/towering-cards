@@ -10,8 +10,11 @@ extends Resource
 
 @export_category("Mechanics")
 @export var cost := 1
-@export var range := 2.
+@export var components : Array[TowerComponent]
 
 
 func create_components(tower : TowerNode) -> void:
-	pass
+	for comp in components:
+		var node := TowerComponentNode.new()
+		node.component = comp.duplicate()
+		tower.add_child(node)
