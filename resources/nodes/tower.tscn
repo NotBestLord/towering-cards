@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c8k4gckjopski"]
 
-[ext_resource type="Script" uid="uid://bbg4a1bjan6by" path="res://scripts/tower.gd" id="1_vcb6v"]
+[ext_resource type="Script" uid="uid://bbg4a1bjan6by" path="res://scripts/tower/tower.gd" id="1_vcb6v"]
 [ext_resource type="Texture2D" uid="uid://d2v8ippkorc8k" path="res://assets/textures/characters/Basic 1x.png" id="2_2dp7i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fuc7x"]

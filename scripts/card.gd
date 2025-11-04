@@ -10,4 +10,8 @@ extends Resource
 
 @export_category("Mechanics")
 @export var cost := 1
-@export var range := 3.
+@export var range := 2.
+
+
+func create_components(tower : TowerNode) -> void:
+	pass
