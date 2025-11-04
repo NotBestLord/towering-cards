@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b3psuimyrex0n" path="res://assets/textures/cards/pixelCardAssest_V01.png" id="2_ui15i"]
 [ext_resource type="Texture2D" uid="uid://blophysk7kyrq" path="res://assets/textures/cards/circle_bronze.png" id="4_2bq8n"]
 [ext_resource type="FontFile" uid="uid://efan31465wvu" path="res://assets/fonts/PixelOperator.ttf" id="6_5qrte"]
-[ext_resource type="Texture2D" uid="uid://d2v8ippkorc8k" path="res://assets/textures/characters/Basic 1x.png" id="6_rdapn"]
+[ext_resource type="Texture2D" uid="uid://d2v8ippkorc8k" path="res://assets/textures/characters/basic_1.png" id="6_rdapn"]
 [ext_resource type="FontFile" uid="uid://i02h8cy1ebax" path="res://assets/fonts/PixelOperator8.ttf" id="6_vo76q"]
 [ext_resource type="TileSet" uid="uid://bfrqjd8esacjo" path="res://assets/tileset.tres" id="8_6n3tq"]
 

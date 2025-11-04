@@ -52,7 +52,11 @@ func shoot_single(angle := -1.) -> void:
 		angle = get_angle()
 	
 	var new_bullet = bullet.instantiate()
-	#new_bullet.on_hit.connect()
+	new_bullet.on_hit.connect(
+		func(node):
+			if node.get_parent() is EnemyNode:
+				node.get_parent().hit(damage)
+	)
 	new_bullet.speed = bullet_speed
 	new_bullet.size = bullet_scale
 	new_bullet.delete_after = bullet_delete_after

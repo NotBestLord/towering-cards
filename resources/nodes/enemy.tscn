@@ -1,10 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://drqg5fji18in1"]
+[gd_scene load_steps=10 format=3 uid="uid://drqg5fji18in1"]
 
 [ext_resource type="Texture2D" uid="uid://c40t1go0txoim" path="res://assets/textures/enemies/demons.png" id="1_bqgl8"]
+[ext_resource type="Script" uid="uid://rwm5nigkk2gv" path="res://scripts/enemy_node.gd" id="1_cqjcj"]
+[ext_resource type="Shader" uid="uid://dr5wp2jtjmk45" path="res://assets/shaders/highlight.gdshader" id="2_kfw0i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_joy7c"]
+shader = ExtResource("2_kfw0i")
+shader_parameter/enabled = false
+shader_parameter/color = Color(1, 1, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cqjcj"]
 atlas = ExtResource("1_bqgl8")
 region = Rect2(18, 3, 13, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cqjcj"]
 
 [sub_resource type="Animation" id="Animation_kfw0i"]
 resource_name = "walk"
@@ -68,10 +77,19 @@ _data = {
 }
 
 [node name="Enemy" type="Node2D"]
+script = ExtResource("1_cqjcj")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(219, 199)
+material = SubResource("ShaderMaterial_joy7c")
 texture = SubResource("AtlasTexture_cqjcj")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-1.5258789e-05, 0)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_cqjcj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
