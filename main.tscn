@@ -113,3 +113,13 @@ bbcode_enabled = true
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="RoundControl" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -240.0
+offset_right = 240.0
+grow_vertical = 0
+mouse_filter = 2
