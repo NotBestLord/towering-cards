@@ -123,6 +123,7 @@ func _update() -> void:
 	while not cards.is_empty():
 		move_child(cards.pop_back(), 0)
 	
+	t_width = clamp(t_width, 0, 800)
 	var begin := -t_width / 2.
 	var dx := t_width / (c_count - 1)
 	

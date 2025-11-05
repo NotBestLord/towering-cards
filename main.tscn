@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://bdfo2ktxggpi6"]
+[gd_scene load_steps=17 format=3 uid="uid://bdfo2ktxggpi6"]
 
 [ext_resource type="PackedScene" uid="uid://dn8le4drpbl3f" path="res://resources/maps/tutorial.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://b6ug6lso05ysb" path="res://scripts/enemy_container.gd" id="2_4c57u"]
 [ext_resource type="Texture2D" uid="uid://57vwbiskmsxk" path="res://assets/textures/icons/icons_tilemap.png" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://drqg5fji18in1" path="res://resources/nodes/enemy.tscn" id="2_kek77"]
 [ext_resource type="Resource" uid="uid://cmsy1bycfhjkq" path="res://resources/enemies/imp.tres" id="3_4c57u"]
@@ -39,6 +40,7 @@ region = Rect2(483, 187, 8, 12)
 
 [node name="EnemyContainer" type="Node2D" parent="."]
 y_sort_enabled = true
+script = ExtResource("2_4c57u")
 
 [node name="Enemy" parent="EnemyContainer" instance=ExtResource("2_kek77")]
 enemy = ExtResource("3_4c57u")

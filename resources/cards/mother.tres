@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="Card" load_steps=12 format=3 uid="uid://8ns44taar6uv"]
+
+[ext_resource type="Script" uid="uid://ca3h7tctf7wdk" path="res://scripts/tower/tower_component.gd" id="1_efsdr"]
+[ext_resource type="PackedScene" uid="uid://b838lhljm04yi" path="res://resources/nodes/projectiles/rock.tscn" id="2_tiq5o"]
+[ext_resource type="Script" uid="uid://dggsh84httqh6" path="res://scripts/tower/components/tower_shooter.gd" id="3_jxfsb"]
+[ext_resource type="Script" uid="uid://o601mm4qckiy" path="res://scripts/card.gd" id="4_fm2w2"]
+[ext_resource type="Resource" uid="uid://bk2suh70ojkxi" path="res://resources/cards/weak_child.tres" id="5_fm2w2"]
+[ext_resource type="Script" uid="uid://dqkj1s46g32n6" path="res://scripts/tower/components/tower_give_card.gd" id="5_tiq5o"]
+[ext_resource type="Texture2D" uid="uid://bb7huyc3av4l8" path="res://assets/textures/characters/human_2.png" id="5_wm08o"]
+[ext_resource type="Resource" uid="uid://rrvhbcyv5pys" path="res://resources/cards/strong_child.tres" id="6_wm08o"]
+
+[sub_resource type="Resource" id="Resource_xjba8"]
+script = ExtResource("3_jxfsb")
+damage = 0.5
+bullet = ExtResource("2_tiq5o")
+bullet_speed = 80.0
+metadata/_custom_type_script = "uid://dggsh84httqh6"
+
+[sub_resource type="Resource" id="Resource_jxfsb"]
+script = ExtResource("5_tiq5o")
+delay = 3
+generation_type = 1
+cards_generated = Array[ExtResource("4_fm2w2")]([ExtResource("5_fm2w2"), ExtResource("6_wm08o")])
+metadata/_custom_type_script = "uid://dqkj1s46g32n6"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5382k"]
+atlas = ExtResource("5_wm08o")
+region = Rect2(38, 40, 13, 14)
+
+[resource]
+script = ExtResource("4_fm2w2")
+name = "Mother"
+description = "Gives birth to children every 3 Rounds"
+sprite = SubResource("AtlasTexture_5382k")
+bg_color = Color(1, 0.8469907, 0.8136013, 1)
+components = Array[ExtResource("1_efsdr")]([SubResource("Resource_xjba8"), SubResource("Resource_jxfsb")])
+metadata/_custom_type_script = "uid://o601mm4qckiy"
