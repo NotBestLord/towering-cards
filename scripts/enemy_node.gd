@@ -28,6 +28,10 @@ func _process(delta: float) -> void:
 	progress += delta * speed * 16
 	var next := EnemyPath.current.curve.sample_baked(progress)
 	flip_h = next.x < position.x
+	if next == position:
+		Global.health -= health
+		## TBD play anim / sound
+		queue_free()
 
 
 func _notification(what: int) -> void:
@@ -47,6 +51,8 @@ func _update() -> void:
 func hit(damage : float) -> void:
 	health -= damage
 	if health <= 0:
+		for e in enemy.spawn_enemies_on_death:
+			LevelContainer.current.spawn_enemy(e, global_position)
 		queue_free()
 		return
 	sprite.material.set_shader_parameter("enabled", true)

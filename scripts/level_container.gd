@@ -81,8 +81,8 @@ func unload_level() -> void:
 		loaded_map.queue_free()
 
 
-func spawn_enemy(enemy : Enemy) -> void:
+func spawn_enemy(enemy : Enemy, global_pos := Vector2(0, -3000)) -> void:
 	var enemy_node := enemy_node_scene.instantiate()
 	enemy_node.enemy = enemy
 	add_child(enemy_node)
-	enemy_node.global_position = Vector2(0,-3000)
+	enemy_node.global_position = global_pos

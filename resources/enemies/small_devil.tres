@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=4 format=3 uid="uid://17v4rkd55mjc"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://17v4rkd55mjc"]
 
 [ext_resource type="Script" uid="uid://ygjwi5m3tq1" path="res://scripts/enemy.gd" id="1_gbfou"]
+[ext_resource type="Resource" uid="uid://dav6l7nfel7b5" path="res://resources/enemies/small_imp.tres" id="2_aytf0"]
 [ext_resource type="Texture2D" uid="uid://c40t1go0txoim" path="res://assets/textures/enemies/demons.png" id="2_m5y86"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lyhjy"]
@@ -10,6 +11,7 @@ region = Rect2(38, 24, 10, 11)
 [resource]
 script = ExtResource("1_gbfou")
 sprite = SubResource("AtlasTexture_lyhjy")
-health = 3.0
+health = 2.0
 speed = 1.5
+spawn_enemies_on_death = Array[ExtResource("1_gbfou")]([ExtResource("2_aytf0")])
 metadata/_custom_type_script = "uid://ygjwi5m3tq1"
