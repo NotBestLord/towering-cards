@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Card" load_steps=9 format=3 uid="uid://brs0us6dwshep"]
+[gd_resource type="Resource" script_class="Card" load_steps=10 format=3 uid="uid://brs0us6dwshep"]
 
 [ext_resource type="Script" uid="uid://ca3h7tctf7wdk" path="res://scripts/tower/tower_component.gd" id="1_5382k"]
+[ext_resource type="PackedScene" uid="uid://b523p7uecn732" path="res://resources/nodes/projectiles/fire_bolt.tscn" id="2_8rf55"]
 [ext_resource type="Script" uid="uid://o601mm4qckiy" path="res://scripts/card.gd" id="2_n1crg"]
 [ext_resource type="Script" uid="uid://dggsh84httqh6" path="res://scripts/tower/components/tower_shooter.gd" id="2_rkdtr"]
 [ext_resource type="Script" uid="uid://dpdvntb86butj" path="res://scripts/tower/components/tower_timer.gd" id="3_8rf55"]
@@ -8,11 +9,14 @@
 
 [sub_resource type="Resource" id="Resource_0byvv"]
 script = ExtResource("2_rkdtr")
+bullet = ExtResource("2_8rf55")
+bullet_speed = 96.0
 metadata/_custom_type_script = "uid://dggsh84httqh6"
 
 [sub_resource type="Resource" id="Resource_h42rt"]
 script = ExtResource("3_8rf55")
 rounds = 3
+return_to_deck = false
 metadata/_custom_type_script = "uid://dpdvntb86butj"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5382k"]

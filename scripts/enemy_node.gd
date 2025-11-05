@@ -26,6 +26,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	position = EnemyPath.current.curve.sample_baked(progress)
 	progress += delta * speed * 16
+	var next := EnemyPath.current.curve.sample_baked(progress)
+	flip_h = next.x < position.x
 
 
 func _notification(what: int) -> void:

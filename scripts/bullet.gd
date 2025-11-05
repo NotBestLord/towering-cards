@@ -42,6 +42,8 @@ func _ready() -> void:
 		var screen_checker = VisibleOnScreenNotifier2D.new()
 		add_child(screen_checker)
 		screen_checker.connect("screen_exited()",on_screen_exited)
+	body_entered.connect(_on_body_entered)
+	area_entered.connect(_on_area_entered)
 	
 
 func _physics_process(delta):

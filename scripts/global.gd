@@ -1,6 +1,7 @@
 extends Node
 
 
+var hand : Hand
 var energy := 10.
 var max_energy := 10.
 var living_enemies : Array[EnemyNode] = []

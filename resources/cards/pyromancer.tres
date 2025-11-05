@@ -1,0 +1,65 @@
+[gd_resource type="Resource" script_class="Card" load_steps=15 format=3 uid="uid://co8u73rhv74rs"]
+
+[ext_resource type="Script" uid="uid://ca3h7tctf7wdk" path="res://scripts/tower/tower_component.gd" id="1_mh308"]
+[ext_resource type="PackedScene" uid="uid://b523p7uecn732" path="res://resources/nodes/projectiles/fire_bolt.tscn" id="2_tjvfb"]
+[ext_resource type="Script" uid="uid://dggsh84httqh6" path="res://scripts/tower/components/tower_shooter.gd" id="3_xjba8"]
+[ext_resource type="Script" uid="uid://dpdvntb86butj" path="res://scripts/tower/components/tower_timer.gd" id="4_0nikm"]
+[ext_resource type="Script" uid="uid://o601mm4qckiy" path="res://scripts/card.gd" id="5_778hw"]
+[ext_resource type="Texture2D" uid="uid://d2v8ippkorc8k" path="res://assets/textures/characters/basic_1.png" id="6_esssn"]
+[ext_resource type="Script" uid="uid://dqkj1s46g32n6" path="res://scripts/tower/components/tower_give_card.gd" id="7_tjvfb"]
+
+[sub_resource type="Resource" id="Resource_0byvv"]
+script = ExtResource("3_xjba8")
+tile_range = 2.5
+damage = 0.75
+bullet = ExtResource("2_tjvfb")
+bullet_count = 3
+bullet_speed = 96.0
+metadata/_custom_type_script = "uid://dggsh84httqh6"
+
+[sub_resource type="Resource" id="Resource_xjba8"]
+script = ExtResource("3_xjba8")
+bullet = ExtResource("2_tjvfb")
+bullet_speed = 96.0
+metadata/_custom_type_script = "uid://dggsh84httqh6"
+
+[sub_resource type="Resource" id="Resource_h42rt"]
+script = ExtResource("4_0nikm")
+rounds = 3
+return_to_deck = false
+metadata/_custom_type_script = "uid://dpdvntb86butj"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5382k"]
+atlas = ExtResource("6_esssn")
+region = Rect2(73, 0, 15, 18)
+
+[sub_resource type="Resource" id="Resource_0nikm"]
+script = ExtResource("5_778hw")
+name = "Fire Spirit"
+description = "Shoots fireballs at nearby enemies
+Dissipates after 3 Rounds"
+sprite = SubResource("AtlasTexture_5382k")
+bg_color = Color(1, 0.19215687, 0, 1)
+components = Array[ExtResource("1_mh308")]([SubResource("Resource_xjba8"), SubResource("Resource_h42rt")])
+metadata/_custom_type_script = "uid://o601mm4qckiy"
+
+[sub_resource type="Resource" id="Resource_778hw"]
+script = ExtResource("7_tjvfb")
+delay = 3
+cards_generated = Array[ExtResource("5_778hw")]([SubResource("Resource_0nikm")])
+metadata/_custom_type_script = "uid://dqkj1s46g32n6"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esssn"]
+atlas = ExtResource("6_esssn")
+region = Rect2(2, 19, 14, 17)
+
+[resource]
+script = ExtResource("5_778hw")
+name = "Pyromancer"
+description = "Shoots a volley of fireballs
+Creates a Fire Spirit once every 3 Rounds"
+sprite = SubResource("AtlasTexture_esssn")
+bg_color = Color(1, 0.19215687, 0, 1)
+cost = 4
+components = Array[ExtResource("1_mh308")]([SubResource("Resource_0byvv"), SubResource("Resource_778hw")])
+metadata/_custom_type_script = "uid://o601mm4qckiy"

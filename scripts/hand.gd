@@ -17,11 +17,10 @@ var selected : CardInHand
 
 
 func _ready() -> void:
+	Global.hand = self
 	await get_tree().create_timer(2).timeout
 	add_card(load("res://resources/cards/fire_spirit.tres"))
-	add_card(load("res://resources/cards/fire_spirit.tres"))
-	add_card(load("res://resources/cards/fire_spirit.tres"))
-	add_card(load("res://resources/cards/fire_spirit.tres"))
+	add_card(load("res://resources/cards/pyromancer.tres"))
 
 
 func _process(_delta: float) -> void:
