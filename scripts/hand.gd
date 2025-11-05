@@ -18,7 +18,6 @@ var selected : CardInHand
 
 func _ready() -> void:
 	Global.hand = self
-	await get_tree().create_timer(2).timeout
 	add_card(load("res://resources/cards/fire_spirit.tres"))
 	add_card(load("res://resources/cards/pyromancer.tres"))
 
@@ -105,6 +104,9 @@ func _update() -> void:
 			c_count += 1
 			if c_count > 1:
 				t_width += add_seperate + 100
+	
+	if cards.is_empty():
+		return
 	
 	cards.sort_custom(
 		func(a,b):

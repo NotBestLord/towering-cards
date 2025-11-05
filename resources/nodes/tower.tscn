@@ -1,8 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://c8k4gckjopski"]
+[gd_scene load_steps=10 format=3 uid="uid://c8k4gckjopski"]
 
 [ext_resource type="Script" uid="uid://bbg4a1bjan6by" path="res://scripts/tower/tower.gd" id="1_vcb6v"]
 [ext_resource type="Texture2D" uid="uid://d2v8ippkorc8k" path="res://assets/textures/characters/basic_1.png" id="2_2dp7i"]
 [ext_resource type="Shader" uid="uid://ctl73t5j0fw1b" path="res://assets/shaders/outline.gdshader" id="2_fuc7x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fuc7x"]
+atlas = ExtResource("2_2dp7i")
+region = Rect2(73, 0, 15, 18)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lpnrv"]
 shader = ExtResource("2_fuc7x")
@@ -10,21 +14,82 @@ shader_parameter/allow_out_of_bounds = false
 shader_parameter/outline_thickness = 1.0
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fuc7x"]
-atlas = ExtResource("2_2dp7i")
-region = Rect2(73, 0, 15, 18)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vcb6v"]
+size = Vector2(6, 4)
+
+[sub_resource type="Animation" id="Animation_2dp7i"]
+resource_name = "activate"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteCont/Sprite:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.06981317007977318, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteCont/Sprite:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.05, 1.05), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fuc7x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteCont/Sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteCont/Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fuc7x"]
+_data = {
+&"RESET": SubResource("Animation_fuc7x"),
+&"activate": SubResource("Animation_2dp7i")
+}
 
 [node name="Tower" type="Node2D"]
 script = ExtResource("1_vcb6v")
 
-[node name="Outline" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_lpnrv")
+[node name="SpriteCont" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="SpriteCont"]
 texture = SubResource("AtlasTexture_fuc7x")
 offset = Vector2(0, -6)
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Outline" type="Sprite2D" parent="SpriteCont/Sprite"]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_lpnrv")
 texture = SubResource("AtlasTexture_fuc7x")
 offset = Vector2(0, -6)
 
@@ -33,8 +98,12 @@ collision_layer = 132
 collision_mask = 132
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_vcb6v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_fuc7x")
+}
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_mouse_exited"]

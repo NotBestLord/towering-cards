@@ -3,14 +3,16 @@ extends Node2D
 
 
 @export var card : Card
-@onready var sprite := $Sprite
-@onready var outline := $Outline
+@onready var sprite_container := $SpriteCont
+@onready var sprite := $SpriteCont/Sprite
+@onready var outline := $SpriteCont/Sprite/Outline
 @onready var shape := $Area2D/CollisionShape2D
+@onready var animator := $AnimationPlayer
 
 var flip_h := false :
 	set(value):
 		flip_h = value
-		sprite.flip_h = flip_h
+		sprite_container.scale.x = -1 if flip_h else 1
 
 
 func _ready() -> void:
@@ -59,8 +61,6 @@ func _update() -> void:
 	sprite.offset.y = -card.sprite.get_height() / 2. + 2
 	outline.texture = card.sprite
 	outline.offset.y = -card.sprite.get_height() / 2. + 2
-	shape.position.y = sprite.offset.y
-	shape.shape.size = card.sprite.get_size()
 
 
 func _on_mouse_exited() -> void:

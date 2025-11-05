@@ -31,10 +31,12 @@ func _tower_process(delta : float) -> void:
 	if timer >= attack_delay:
 		target = Global.get_enemy_target(tower, tile_range * 16.)
 		if is_instance_valid(target):
+			tower.animator.play("activate")
 			shoot()
 			var a := get_angle()
 			while a < 0:
-				a += 90
+				a += 360
+			print(a)
 			tower.flip_h = a > 90 and a < 270
 		timer = 0
 
