@@ -38,10 +38,11 @@ func _process(_delta: float) -> void:
 			place_block.modulate = Color.WHITE
 
 
-func add_card(card : Card) -> void:
+func add_card(card : Card, pos := Vector2.ZERO) -> void:
 	var sprite := card_sprite_scene.instantiate()
 	sprite.hand = self
 	sprite.card = card
+	sprite.position = pos
 	add_child(sprite)
 	_update()
 
@@ -87,16 +88,32 @@ func try_place_selected() -> void:
 	get_tree().root.add_child(tower)
 	tower.global_position = pos
 	selected.queue_free()
+	if focused == selected:
+		focused = null
+	selected = null
+	await get_tree().process_frame
+	_update()
 
 
 func _update() -> void:
 	var t_width := 0.
 	var c_count := 0
+	var cards : Array[CardInHand] = []
 	for node in get_children():
 		if node is CardInHand:
+			cards.append(node)
 			c_count += 1
 			if c_count > 1:
 				t_width += add_seperate + 100
+	
+	cards.sort_custom(
+		func(a,b):
+			if a.position.x < b.position.x:
+				return true
+			return false
+	)
+	while not cards.is_empty():
+		move_child(cards.pop_back(), 0)
 	
 	var begin := -t_width / 2.
 	var dx := t_width / (c_count - 1)

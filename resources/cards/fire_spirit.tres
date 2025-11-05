@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://dpdvntb86butj" path="res://scripts/tower/components/tower_timer.gd" id="3_8rf55"]
 [ext_resource type="Texture2D" uid="uid://d2v8ippkorc8k" path="res://assets/textures/characters/basic_1.png" id="5_1ijhb"]
 
-[sub_resource type="Resource" id="Resource_0byvv"]
+[sub_resource type="Resource" id="Resource_xjba8"]
 script = ExtResource("2_rkdtr")
 bullet = ExtResource("2_8rf55")
 bullet_speed = 96.0
@@ -26,9 +26,9 @@ region = Rect2(73, 0, 15, 18)
 [resource]
 script = ExtResource("2_n1crg")
 name = "Fire Spirit"
-description = "Shoots fireballs at nearby enemies
+description = "Shoots firebolts at nearby enemies
 Dissipates after 3 Rounds"
 sprite = SubResource("AtlasTexture_5382k")
 bg_color = Color(1, 0.19215687, 0, 1)
-components = Array[ExtResource("1_5382k")]([SubResource("Resource_0byvv"), SubResource("Resource_h42rt")])
+components = Array[ExtResource("1_5382k")]([SubResource("Resource_xjba8"), SubResource("Resource_h42rt")])
 metadata/_custom_type_script = "uid://o601mm4qckiy"
