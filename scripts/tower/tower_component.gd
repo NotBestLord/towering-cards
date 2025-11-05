@@ -3,6 +3,7 @@ extends Resource
 
 
 var tower : TowerNode
+var comp_node : TowerComponentNode
 
 
 func _tower_ready() -> void:
@@ -25,5 +26,5 @@ func _round_end() -> void:
 	pass
 
 
-func _draw(_comp_node : TowerComponentNode) -> void:
+func _draw() -> void:
 	pass

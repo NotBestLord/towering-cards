@@ -8,6 +8,7 @@ extends Node2D
 func _tower_ready() -> void:
 	assert(is_instance_valid(component), "Component Invalid")
 	component.tower = get_tower()
+	component.comp_node = self
 	component._tower_ready()
 
 
@@ -33,7 +34,7 @@ func _round_end() -> void:
 
 func _draw() -> void:
 	assert(is_instance_valid(component), "Component Invalid")
-	component._draw(self)
+	component._draw()
 
 
 func get_tower() -> TowerNode:

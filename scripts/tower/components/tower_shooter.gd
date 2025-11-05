@@ -21,6 +21,10 @@ var target : EnemyNode
 var timer := 0.
 
 
+func _tower_ready() -> void:
+	comp_node.show_behind_parent = true
+
+
 func _tower_process(delta : float) -> void:
 	var attack_delay := 1 / attack_rate
 	timer += delta
@@ -35,7 +39,7 @@ func _tower_process(delta : float) -> void:
 		timer = 0
 
 
-func _draw(comp_node : TowerComponentNode) -> void:
+func _draw() -> void:
 	var r := tile_range * 16
 	comp_node.draw_circle(Vector2.ZERO, r - 1, Color(0.4,0.4,0.4,0.6), false, 2)
 

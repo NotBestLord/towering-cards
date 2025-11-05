@@ -20,5 +20,5 @@ func _round_end() -> void:
 			timer = -1
 
 
-func _draw(_comp_node : TowerComponentNode) -> void:
+func _draw() -> void:
 	pass

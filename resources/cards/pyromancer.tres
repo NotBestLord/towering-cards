@@ -57,7 +57,7 @@ region = Rect2(2, 19, 14, 17)
 script = ExtResource("5_778hw")
 name = "Pyromancer"
 description = "Shoots a volley of fireballs
-Creates a Fire Spirit once every 3 Rounds"
+Creates a Fire Spirit Card once every 3 Rounds"
 sprite = SubResource("AtlasTexture_esssn")
 bg_color = Color(1, 0.19215687, 0, 1)
 cost = 4
