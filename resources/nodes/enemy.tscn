@@ -5,6 +5,7 @@
 [ext_resource type="Shader" uid="uid://dr5wp2jtjmk45" path="res://assets/shaders/highlight.gdshader" id="2_kfw0i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_joy7c"]
+resource_local_to_scene = true
 shader = ExtResource("2_kfw0i")
 shader_parameter/enabled = false
 shader_parameter/color = Color(1, 1, 1, 1)

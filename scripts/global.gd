@@ -3,6 +3,8 @@ extends Node
 
 var hand : Hand
 var round := 0
+var round_ongoing := false
+var health := 10.
 var energy := 10.
 var max_energy := 10.
 var living_enemies : Array[EnemyNode] = []

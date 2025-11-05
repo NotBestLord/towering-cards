@@ -9,6 +9,7 @@ atlas = ExtResource("2_2dp7i")
 region = Rect2(73, 0, 15, 18)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lpnrv"]
+resource_local_to_scene = true
 shader = ExtResource("2_fuc7x")
 shader_parameter/allow_out_of_bounds = false
 shader_parameter/outline_thickness = 1.0
