@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c8k4gckjopski"]
+[gd_scene load_steps=11 format=3 uid="uid://c8k4gckjopski"]
 
 [ext_resource type="Script" uid="uid://bbg4a1bjan6by" path="res://scripts/tower/tower.gd" id="1_vcb6v"]
 [ext_resource type="Texture2D" uid="uid://d2v8ippkorc8k" path="res://assets/textures/characters/basic_1.png" id="2_2dp7i"]
@@ -15,6 +15,9 @@ shader_parameter/outline_thickness = 1.0
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vcb6v"]
+size = Vector2(6, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2dp7i"]
 size = Vector2(6, 4)
 
 [sub_resource type="Animation" id="Animation_2dp7i"]
@@ -94,11 +97,18 @@ texture = SubResource("AtlasTexture_fuc7x")
 offset = Vector2(0, -6)
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 132
-collision_mask = 132
+collision_layer = 128
+collision_mask = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_vcb6v")
+
+[node name="Obstacle" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle"]
+shape = SubResource("RectangleShape2D_2dp7i")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

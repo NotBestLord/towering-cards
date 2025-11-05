@@ -61,6 +61,8 @@ func _update() -> void:
 	sprite.offset.y = -card.sprite.get_height() / 2. + 2
 	outline.texture = card.sprite
 	outline.offset.y = -card.sprite.get_height() / 2. + 2
+	shape.position.y = sprite.offset.y
+	shape.shape.size = card.sprite.get_size()
 
 
 func _on_mouse_exited() -> void:
