@@ -41,9 +41,13 @@ func add_card(card : Card, pos := Vector2.ZERO) -> void:
 	var sprite := card_sprite_scene.instantiate()
 	sprite.hand = self
 	sprite.card = card
-	sprite.position = pos
 	add_child(sprite)
+	sprite.position = pos
 	_update()
+
+
+func add_card_global(card : Card, global_pos := Vector2.ZERO) -> void:
+	add_card(card, global_pos - global_position)
 
 
 func grab_focus(card : CardInHand) -> void:
