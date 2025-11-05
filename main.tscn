@@ -1,15 +1,18 @@
-[gd_scene load_steps=17 format=3 uid="uid://bdfo2ktxggpi6"]
+[gd_scene load_steps=20 format=3 uid="uid://bdfo2ktxggpi6"]
 
 [ext_resource type="PackedScene" uid="uid://dn8le4drpbl3f" path="res://resources/maps/tutorial.tscn" id="1_0xm2m"]
-[ext_resource type="Script" uid="uid://b6ug6lso05ysb" path="res://scripts/enemy_container.gd" id="2_4c57u"]
+[ext_resource type="Script" uid="uid://b6ug6lso05ysb" path="res://scripts/level_container.gd" id="2_4c57u"]
 [ext_resource type="Texture2D" uid="uid://57vwbiskmsxk" path="res://assets/textures/icons/icons_tilemap.png" id="2_h2yge"]
-[ext_resource type="PackedScene" uid="uid://drqg5fji18in1" path="res://resources/nodes/enemy.tscn" id="2_kek77"]
-[ext_resource type="Resource" uid="uid://cmsy1bycfhjkq" path="res://resources/enemies/imp.tres" id="3_4c57u"]
 [ext_resource type="Texture2D" uid="uid://d2v8ippkorc8k" path="res://assets/textures/characters/basic_1.png" id="3_h2yge"]
 [ext_resource type="Texture2D" uid="uid://b3psuimyrex0n" path="res://assets/textures/cards/pixelCardAssest_V01.png" id="5_7mycd"]
 [ext_resource type="Script" uid="uid://cpibx7br3x7jk" path="res://scripts/energy_bar.gd" id="5_272bh"]
 [ext_resource type="Script" uid="uid://dtvxeds64wmgf" path="res://scripts/hand.gd" id="6_7mycd"]
 [ext_resource type="FontFile" uid="uid://i02h8cy1ebax" path="res://assets/fonts/PixelOperator8.ttf" id="6_272bh"]
+[ext_resource type="Script" uid="uid://b00elva106o4r" path="res://scripts/round_control.gd" id="9_ycdy4"]
+[ext_resource type="Texture2D" uid="uid://fiyqrp7dbqkj" path="res://assets/textures/icons/start_icon.png" id="11_efxa6"]
+[ext_resource type="Texture2D" uid="uid://dbi7nxpdjj3t1" path="res://assets/textures/icons/Transparent border/panel-transparent-border-025.png" id="11_vivmo"]
+[ext_resource type="Texture2D" uid="uid://ctbi4qskx6coq" path="res://assets/textures/icons/Transparent border/panel-transparent-border-000.png" id="12_w48qg"]
+[ext_resource type="Texture2D" uid="uid://dqjn13r8cx7o0" path="res://assets/textures/icons/Transparent center/panel-transparent-center-000.png" id="13_vivmo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1bvp3"]
 atlas = ExtResource("2_h2yge")
@@ -38,12 +41,9 @@ region = Rect2(483, 187, 8, 12)
 
 [node name="ForestMap" parent="." instance=ExtResource("1_0xm2m")]
 
-[node name="EnemyContainer" type="Node2D" parent="."]
+[node name="LevelContainer" type="Node2D" parent="."]
 y_sort_enabled = true
 script = ExtResource("2_4c57u")
-
-[node name="Enemy" parent="EnemyContainer" instance=ExtResource("2_kek77")]
-enemy = ExtResource("3_4c57u")
 
 [node name="PlaceBlock" type="Sprite2D" parent="."]
 position = Vector2(640, 720)
@@ -54,6 +54,7 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlaceBlock/Area2D"]
+visible = false
 shape = SubResource("RectangleShape2D_lquwl")
 
 [node name="TowerSprite" type="Sprite2D" parent="PlaceBlock"]
@@ -123,3 +124,52 @@ offset_top = -240.0
 offset_right = 240.0
 grow_vertical = 0
 mouse_filter = 2
+script = ExtResource("9_ycdy4")
+
+[node name="Panel" type="NinePatchRect" parent="CanvasLayer/RoundControl"]
+self_modulate = Color(0, 0, 0, 0.85882354)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -148.0
+offset_right = 248.0
+offset_bottom = -20.0
+grow_vertical = 0
+texture = ExtResource("11_vivmo")
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+
+[node name="RoundButton" type="TextureButton" parent="CanvasLayer/RoundControl/Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 16.0
+offset_top = -48.0
+offset_right = 112.0
+offset_bottom = 48.0
+grow_vertical = 2
+focus_mode = 0
+texture_normal = ExtResource("13_vivmo")
+texture_pressed = ExtResource("12_w48qg")
+texture_hover = ExtResource("13_vivmo")
+stretch_mode = 0
+
+[node name="ButtonIcon" type="TextureRect" parent="CanvasLayer/RoundControl/Panel/RoundButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_efxa6")
+
+[connection signal="pressed" from="CanvasLayer/RoundControl/Panel/RoundButton" to="CanvasLayer/RoundControl" method="_on_round_button_pressed"]

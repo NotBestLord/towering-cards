@@ -100,6 +100,12 @@ func try_place_selected() -> void:
 	_update()
 
 
+func clear() -> void:
+	for node in get_children():
+		if node is CardInHand:
+			node.queue_free()
+
+
 func _update() -> void:
 	var t_width := 0.
 	var c_count := 0

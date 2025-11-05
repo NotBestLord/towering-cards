@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=4 format=3 uid="uid://cutcp7wdwje6l"]
+
+[ext_resource type="Script" uid="uid://ygjwi5m3tq1" path="res://scripts/enemy.gd" id="1_80lil"]
+[ext_resource type="Texture2D" uid="uid://c40t1go0txoim" path="res://assets/textures/enemies/demons.png" id="2_o3gxn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyhjy"]
+atlas = ExtResource("2_o3gxn")
+region = Rect2(20, 25, 11, 9)
+
+[resource]
+script = ExtResource("1_80lil")
+sprite = SubResource("AtlasTexture_lyhjy")
+health = 1.5
+speed = 2.0
+metadata/_custom_type_script = "uid://ygjwi5m3tq1"
