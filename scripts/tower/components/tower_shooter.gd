@@ -36,7 +36,6 @@ func _tower_process(delta : float) -> void:
 			var a := get_angle()
 			while a < 0:
 				a += 360
-			print(a)
 			tower.flip_h = a > 90 and a < 270
 		timer = 0
 

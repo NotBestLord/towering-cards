@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Card" load_steps=8 format=3 uid="uid://bk2suh70ojkxi"]
+
+[ext_resource type="Script" uid="uid://ca3h7tctf7wdk" path="res://scripts/tower/tower_component.gd" id="1_sftc8"]
+[ext_resource type="PackedScene" uid="uid://b838lhljm04yi" path="res://resources/nodes/projectiles/rock.tscn" id="2_8nfnl"]
+[ext_resource type="Script" uid="uid://dggsh84httqh6" path="res://scripts/tower/components/tower_shooter.gd" id="3_7iyn0"]
+[ext_resource type="Texture2D" uid="uid://bb7huyc3av4l8" path="res://assets/textures/characters/human_2.png" id="5_8nfnl"]
+[ext_resource type="Script" uid="uid://o601mm4qckiy" path="res://scripts/card.gd" id="5_86dgc"]
+
+[sub_resource type="Resource" id="Resource_xjba8"]
+script = ExtResource("3_7iyn0")
+damage = 0.5
+bullet = ExtResource("2_8nfnl")
+bullet_speed = 80.0
+metadata/_custom_type_script = "uid://dggsh84httqh6"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5382k"]
+atlas = ExtResource("5_8nfnl")
+region = Rect2(4, 41, 11, 13)
+
+[resource]
+script = ExtResource("5_86dgc")
+name = "Weak Child"
+description = "Weakly throws rocks at nearby enemies"
+sprite = SubResource("AtlasTexture_5382k")
+bg_color = Color(1, 0.8469907, 0.8136013, 1)
+components = Array[ExtResource("1_sftc8")]([SubResource("Resource_xjba8")])
+metadata/_custom_type_script = "uid://o601mm4qckiy"

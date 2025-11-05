@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b838lhljm04yi"]
+
+[ext_resource type="Script" uid="uid://c1na05dac080c" path="res://scripts/bullet.gd" id="1_u267e"]
+[ext_resource type="Texture2D" uid="uid://dda7in5os6r6h" path="res://assets/textures/projectiles/rock.png" id="2_u267e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ei03i"]
+size = Vector2(7, 6)
+
+[node name="Rock" type="Area2D"]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_u267e")
+rotation_mode = 1
+metadata/_custom_type_script = "uid://c1na05dac080c"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.5, 0)
+texture = ExtResource("2_u267e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ei03i")
