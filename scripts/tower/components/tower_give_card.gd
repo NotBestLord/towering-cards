@@ -24,12 +24,14 @@ func _round_end() -> void:
 	if timer == delay:
 		if generation_type == Type.GIVE_ALL:
 			for card in cards_generated:
-				Global.hand.add_card_global(card, tower.global_position)
+				Global.hand.add_card_global(card, tower.get_global_transform_with_canvas().origin)
 		elif generation_type == Type.GIVE_ONE:
-			Global.hand.add_card_global(cards_generated.pick_random(), tower.global_position)
+			Global.hand.add_card_global(cards_generated.pick_random(), tower.get_global_transform_with_canvas().origin)
 		
 		if oneshot:
 			timer = -1
+		else:
+			timer = 0
 
 
 func _draw() -> void:

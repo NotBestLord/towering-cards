@@ -50,7 +50,7 @@ func add_card(card : Card, pos := Vector2.ZERO) -> void:
 
 
 func add_card_global(card : Card, global_pos := Vector2.ZERO) -> void:
-	add_card(card, get_canvas_transform() * global_pos - global_position)
+	add_card(card, global_pos - global_position)
 
 
 func grab_focus(card : CardInHand) -> void:
