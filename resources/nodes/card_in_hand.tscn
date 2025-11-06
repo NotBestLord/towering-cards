@@ -16,5 +16,6 @@ offset_top = -128.0
 offset_right = 100.0
 offset_bottom = 128.0
 
+[connection signal="gui_input" from="Area2D" to="." method="_on_area_2d_gui_input"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_mouse_exited"]

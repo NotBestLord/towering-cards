@@ -39,6 +39,11 @@ func _process(_delta: float) -> void:
 		else:
 			place_block.modulate = Color.WHITE
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			try_place_selected()
+
 
 func add_card(card : Card, pos := Vector2.ZERO) -> void:
 	var sprite := card_sprite_scene.instantiate()
@@ -60,7 +65,8 @@ func grab_focus(card : CardInHand) -> void:
 
 func click_card(card : CardInHand) -> void:
 	if card == selected:
-		try_place_selected()
+		selected = null
+		_update()
 		return
 	if card != focused:
 		return
@@ -142,7 +148,7 @@ func _update() -> void:
 				y = -128
 				begin += add_seperate
 			if node == focused and not is_instance_valid(selected):
-				y = -128
+				y = -64
 				begin += add_seperate
 			tween.parallel().tween_property(
 				node, "position", Vector2(begin, y), 0.5
