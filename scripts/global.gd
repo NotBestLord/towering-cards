@@ -1,6 +1,7 @@
 extends Node
 
 
+var game_ongoing := true ## TBD, chaneg after map implemtend
 var hand : Hand
 var round := 0
 var round_ongoing := false
@@ -8,6 +9,7 @@ var health := 10.
 var energy := 10.
 var max_energy := 10.
 var living_enemies : Array[EnemyNode] = []
+var placed_towers : Array[TowerNode] = []
 
 
 var enemies : Dictionary[String, Enemy] = {}

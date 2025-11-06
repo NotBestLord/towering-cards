@@ -52,7 +52,7 @@ func hit(damage : float) -> void:
 	health -= damage
 	if health <= 0:
 		for e in enemy.spawn_enemies_on_death:
-			LevelContainer.current.spawn_enemy(e, global_position)
+			LevelContainer.current.spawn_enemy(e, progress)
 		queue_free()
 		return
 	sprite.material.set_shader_parameter("enabled", true)

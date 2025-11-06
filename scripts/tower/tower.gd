@@ -17,6 +17,7 @@ var flip_h := false :
 
 func _ready() -> void:
 	assert(card != null)
+	Global.placed_towers.append(self)
 	card.create_components(self)
 	_update()
 	outline.hide()
@@ -32,6 +33,7 @@ func _process(delta: float) -> void:
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_PREDELETE:
+		Global.placed_towers.erase(self)
 		for comp in _get_components():
 			comp._tower_predelete()
 
@@ -43,7 +45,7 @@ func start_round() -> void:
 
 func end_round() -> void:
 	for comp in _get_components():
-		comp._round_over()
+		comp._round_end()
 
 
 func _get_components() -> Array[TowerComponentNode]:

@@ -16,13 +16,17 @@ var executing_commands : Dictionary[String, Vector2] = {}
 
 func _ready() -> void:
 	current = self
-	await get_tree().process_frame
+	await get_tree().process_frame ## TBD
 	load_level(load("res://resources/levels/tutorial.tres"))
 
 
 func _process(delta: float) -> void:
 	if executing_commands.is_empty() and round_commands.is_empty() and Global.living_enemies.is_empty():
-		Global.round_ongoing = false
+		if Global.round_ongoing:
+			Global.round_ongoing = false
+			Global.energy = clamp(Global.energy + 2, 0, Global.max_energy)
+			for tower in Global.placed_towers:
+				tower.end_round()
 		return
 	
 	if executing_commands.is_empty():
@@ -58,6 +62,8 @@ func begin_round() -> void:
 	Global.round += 1
 	Global.round_ongoing = true
 	round_commands.clear()
+	for tower in Global.placed_towers:
+		tower.start_round()
 	for line in loaded_level.get_round_data(Global.round).split("\n"):
 		if line.strip_edges().is_empty():
 			continue
@@ -68,7 +74,7 @@ func load_level(level : Level) -> void:
 	unload_level()
 	loaded_level = level
 	Global.round = 0
-	Global.energy = 4
+	Global.energy = 10 ## TBD
 	Global.hand.clear()
 	loaded_map = level.map.instantiate()
 	add_child(loaded_map)
@@ -81,8 +87,9 @@ func unload_level() -> void:
 		loaded_map.queue_free()
 
 
-func spawn_enemy(enemy : Enemy, global_pos := Vector2(0, -3000)) -> void:
+func spawn_enemy(enemy : Enemy, progress := 0.) -> void:
 	var enemy_node := enemy_node_scene.instantiate()
 	enemy_node.enemy = enemy
-	add_child(enemy_node)
-	enemy_node.global_position = global_pos
+	enemy_node.progress = progress
+	call_deferred("add_child", enemy_node)
+	enemy_node.global_position = Vector2(0, -10000)
