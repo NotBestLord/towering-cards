@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Level" load_steps=3 format=3 uid="uid://c003uitj7wlh8"]
+
+[ext_resource type="PackedScene" uid="uid://bit4nsb7fdsua" path="res://resources/maps/forest_1.tscn" id="1_5hlgj"]
+[ext_resource type="Script" uid="uid://c71pnsad0hxfe" path="res://scripts/level.gd" id="2_hv77h"]
+
+[resource]
+script = ExtResource("2_hv77h")
+map = ExtResource("1_5hlgj")
+rounds = "::
+	enemy small_imp 10 10
+::
+	enemy small_imp 15 10
+::
+	enemy small_demon 10 10
+::
+	enemy small_devil 5 10
+::
+	enemy small_devil 10 10"
+metadata/_custom_type_script = "uid://c71pnsad0hxfe"
