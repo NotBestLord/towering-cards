@@ -2,6 +2,9 @@ class_name TowerShootComponent
 extends TowerComponent
 
 
+var detect_area_scene := preload("res://resources/nodes/tower_shoot_area.tscn")
+
+
 @export var tile_range := 2.
 @export var damage := 1.
 @export var attack_rate := 1.
@@ -17,19 +20,24 @@ extends TowerComponent
 @export var bullet_multishot_spread := 15.
 
 
+var detect_area : Area2D
 var target : EnemyNode
 var timer := 0.
 
 
 func _tower_ready() -> void:
 	comp_node.show_behind_parent = true
+	detect_area = detect_area_scene.instantiate()
+	comp_node.add_child(detect_area)
+	detect_area.position = Vector2.ZERO
+	detect_area.scale = Vector2.ONE * tile_range
 
 
 func _tower_process(delta : float) -> void:
 	var attack_delay := 1 / attack_rate
 	timer += delta
 	if timer >= attack_delay:
-		target = Global.get_enemy_target(tower, tile_range * 16.)
+		target = get_target()
 		if is_instance_valid(target):
 			tower.animator.play("activate")
 			shoot()
@@ -43,6 +51,24 @@ func _tower_process(delta : float) -> void:
 func _draw() -> void:
 	var r := tile_range * 16
 	comp_node.draw_circle(Vector2.ZERO, r - 1, Color(0.4,0.4,0.4,0.6), false, 2)
+
+
+func get_target() -> EnemyNode:
+	var areas := detect_area.get_overlapping_areas()
+	var enemies : Array[EnemyNode] = []
+	
+	for area in areas:
+		if area.get_parent() is EnemyNode:
+			enemies.append(area.get_parent())
+	
+	enemies.sort_custom(
+		func(a, b):
+		if a.progress > b.progress:
+			return true
+		return false
+	)
+	
+	return enemies.pop_front()
 
 
 func get_angle() -> float:

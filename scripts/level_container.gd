@@ -59,12 +59,12 @@ func _process(delta: float) -> void:
 
 
 func begin_round() -> void:
-	Global.round += 1
+	Global.round_index += 1
 	Global.round_ongoing = true
 	round_commands.clear()
 	for tower in Global.placed_towers:
 		tower.start_round()
-	for line in loaded_level.get_round_data(Global.round).split("\n"):
+	for line in loaded_level.get_round_data(Global.round_index).split("\n"):
 		if line.strip_edges().is_empty():
 			continue
 		round_commands.append(line.strip_edges())
@@ -73,7 +73,7 @@ func begin_round() -> void:
 func load_level(level : Level) -> void:
 	unload_level()
 	loaded_level = level
-	Global.round = 0
+	Global.round_index = 0
 	Global.energy = 10 ## TBD
 	Global.hand.clear()
 	loaded_map = level.map.instantiate()

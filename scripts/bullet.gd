@@ -74,10 +74,16 @@ func on_screen_exited():
 
 
 func _on_body_entered(body: Node2D) -> void:
+	if is_queued_for_deletion() or body.is_queued_for_deletion():
+		return
 	on_hit.emit(body)
 	hit_check()
 
 
 func _on_area_entered(area: Area2D) -> void:
+	if is_queued_for_deletion() or area.is_queued_for_deletion():
+		return
+	if area.get_parent() is EnemyNode and area.get_parent().is_queued_for_deletion():
+		return
 	on_hit.emit(area)
 	hit_check()

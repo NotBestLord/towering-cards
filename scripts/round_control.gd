@@ -7,6 +7,7 @@ var pause_round_icon := preload("res://assets/textures/icons/pause_icon.png")
 
 
 func _process(_delta: float) -> void:
+	visible = Global.game_ongoing
 	$Panel/TextureRect/RichTextLabel.text = "%d" % Global.health
 	$Panel/RoundButton/ButtonIcon.texture = (
 		pause_round_icon
