@@ -2,6 +2,9 @@ class_name TowerNode
 extends Node2D
 
 
+const SPRITE_OFFSET := 4.
+
+
 @export var card : Card
 @onready var sprite_container := $SpriteCont
 @onready var sprite := $SpriteCont/Sprite
@@ -60,9 +63,9 @@ func _update() -> void:
 	if not is_instance_valid(card):
 		return
 	sprite.texture = card.sprite
-	sprite.offset.y = -card.sprite.get_height() / 2. + 2
+	sprite.offset.y = -card.sprite.get_height() / 2. + SPRITE_OFFSET
 	outline.texture = card.sprite
-	outline.offset.y = -card.sprite.get_height() / 2. + 2
+	outline.offset.y = -card.sprite.get_height() / 2. + SPRITE_OFFSET
 	shape.position.y = sprite.offset.y
 	shape.shape.size = card.sprite.get_size()
 

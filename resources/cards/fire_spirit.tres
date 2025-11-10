@@ -9,14 +9,22 @@
 
 [sub_resource type="Resource" id="Resource_xjba8"]
 script = ExtResource("2_rkdtr")
+tile_range = null
+damage = null
+attack_rate = null
 bullet = ExtResource("2_8rf55")
+bullet_count = null
+bullet_angle_variance = null
+bullet_delete_after = null
+bullet_scale = null
 bullet_speed = 96.0
+bullet_pierce = null
+bullet_multishot_spread = null
 metadata/_custom_type_script = "uid://dggsh84httqh6"
 
 [sub_resource type="Resource" id="Resource_h42rt"]
 script = ExtResource("3_8rf55")
 rounds = 3
-return_to_deck = false
 metadata/_custom_type_script = "uid://dpdvntb86butj"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5382k"]

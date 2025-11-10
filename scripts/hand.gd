@@ -70,7 +70,7 @@ func click_card(card : CardInHand) -> void:
 		return
 	selected = card
 	place_block_tower.texture = card.card.sprite
-	place_block_tower.offset.y = -card.card.sprite.get_height() / 2. + 2
+	place_block_tower.offset.y = -card.card.sprite.get_height() / 2. + TowerNode.SPRITE_OFFSET
 	_update()
 
 

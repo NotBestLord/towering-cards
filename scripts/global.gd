@@ -4,6 +4,8 @@ extends Node
 var deck : Array[Card] = [
 	load("res://resources/cards/mage_merman.tres"),
 	load("res://resources/cards/spear_merman.tres"),
+	load('res://resources/cards/fire_spirit.tres'),
+	load('res://resources/cards/fire_spirit.tres')
 ]
 
 var game_ongoing := true ## TBD, chaneg after map implemtend
