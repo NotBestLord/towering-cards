@@ -16,7 +16,7 @@ func get_round_count() -> int:
 	lines.append_array(rounds.strip_edges().split("::"))
 	lines = lines.filter(
 		func(line):
-			return not line.begins_with("#")
+			return not line.strip_edges().begins_with("#") and not line.strip_edges().is_empty()
 	)
 	return lines.size()
 

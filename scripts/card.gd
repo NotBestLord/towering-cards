@@ -2,11 +2,32 @@ class_name Card
 extends Resource
 
 
+enum Type {
+	HUMAN,
+	FIRE,
+	WATER,
+	EARTH,
+	WIND,
+	LIGHTNING,
+}
+
+
+const TYPE_COLORS := {
+	Type.HUMAN: Color.LIGHT_YELLOW,
+	Type.FIRE: Color.ORANGE_RED,
+	Type.WATER: Color.DODGER_BLUE,
+	Type.EARTH: Color.SADDLE_BROWN,
+	Type.WIND: Color.SPRING_GREEN,
+	Type.LIGHTNING: Color.GOLD,
+	
+}
+
+
 @export_category("Visual")
 @export var name : String
 @export_multiline var description : String
 @export var sprite : Texture2D
-@export_color_no_alpha var bg_color : Color
+@export var type : Type
 
 @export_category("Mechanics")
 @export var cost := 1

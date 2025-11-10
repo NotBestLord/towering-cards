@@ -45,7 +45,7 @@ func _tower_process(delta : float) -> void:
 			while a < 0:
 				a += 360
 			tower.flip_h = a > 90 and a < 270
-		timer = 0
+			timer = 0
 
 
 func _draw() -> void:

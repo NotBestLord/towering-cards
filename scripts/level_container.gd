@@ -27,6 +27,8 @@ func _process(delta: float) -> void:
 			Global.energy = clamp(Global.energy + 2, 0, Global.max_energy)
 			for tower in Global.placed_towers:
 				tower.end_round()
+			if Global.round_index >= Global.max_round:
+				print("END LEVEL!!!!") ## TBD
 		return
 	
 	if executing_commands.is_empty():
@@ -74,6 +76,7 @@ func load_level(level : Level) -> void:
 	unload_level()
 	loaded_level = level
 	Global.round_index = 0
+	Global.max_round = loaded_level.get_round_count()
 	Global.energy = 10 ## TBD
 	Global.hand.clear()
 	loaded_map = level.map.instantiate()

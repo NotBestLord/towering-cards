@@ -4,6 +4,7 @@ extends Node
 var game_ongoing := true ## TBD, chaneg after map implemtend
 var hand : Hand
 var round_index := 0
+var max_round := 0
 var round_ongoing := false
 var health := 10.
 var energy := 10.

@@ -12,8 +12,8 @@ extends Node2D
 func _update() -> void:
 	if not is_instance_valid(card):
 		return
-	$Bg.self_modulate = card.bg_color
-	$Border.self_modulate = card.bg_color
+	$Bg.self_modulate = Card.TYPE_COLORS[card.type]
+	$Border.self_modulate = Card.TYPE_COLORS[card.type]
 	$TopPanel/Name.text = card.name.capitalize()
 	$BottomPanel/Description.text = card.description
 	$Energy/EnergyLabel.text = "%d" % card.cost

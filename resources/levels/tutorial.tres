@@ -9,11 +9,11 @@ map = ExtResource("1_plxkm")
 rounds = "::
 	enemy small_imp 10 10
 ::
-	enemy small_imp 20 10
+	enemy small_imp 15 10
 ::
 	enemy small_demon 10 10
 ::
-	enemy small_devil 10 10
+	enemy small_devil 5 10
 ::
-	enemy small_devil 20 10"
+	enemy small_devil 10 10"
 metadata/_custom_type_script = "uid://c71pnsad0hxfe"

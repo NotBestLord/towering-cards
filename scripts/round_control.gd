@@ -14,6 +14,10 @@ func _process(_delta: float) -> void:
 		if Global.round_ongoing else
 		start_round_icon
 	)
+	$Panel/RoundsLabel.text = "%d/%d" % [
+		Global.round_index,
+		Global.max_round
+	]
 
 
 func _on_round_button_pressed() -> void:

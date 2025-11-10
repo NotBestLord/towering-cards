@@ -30,8 +30,9 @@ region = Rect2(38, 40, 13, 14)
 [resource]
 script = ExtResource("4_fm2w2")
 name = "Mother"
-description = "Gives birth to children every 3 Rounds"
+description = "Creates a child every 3 Rounds"
 sprite = SubResource("AtlasTexture_5382k")
 bg_color = Color(1, 0.8469907, 0.8136013, 1)
+cost = 3
 components = Array[ExtResource("1_efsdr")]([SubResource("Resource_xjba8"), SubResource("Resource_jxfsb")])
 metadata/_custom_type_script = "uid://o601mm4qckiy"

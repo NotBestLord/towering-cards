@@ -39,7 +39,6 @@ name = "Fire Spirit"
 description = "Shoots fireballs at nearby enemies
 Dissipates after 3 Rounds"
 sprite = SubResource("AtlasTexture_5382k")
-bg_color = Color(1, 0.19215687, 0, 1)
 components = Array[ExtResource("1_mh308")]([SubResource("Resource_xjba8"), SubResource("Resource_h42rt")])
 metadata/_custom_type_script = "uid://o601mm4qckiy"
 
@@ -59,7 +58,7 @@ name = "Pyromancer"
 description = "Shoots a volley of firebolts
 Creates a Fire Spirit Card once every 3 Rounds"
 sprite = SubResource("AtlasTexture_esssn")
-bg_color = Color(1, 0.19215687, 0, 1)
-cost = 4
+type = 1
+cost = 5
 components = Array[ExtResource("1_mh308")]([SubResource("Resource_0byvv"), SubResource("Resource_778hw")])
 metadata/_custom_type_script = "uid://o601mm4qckiy"
