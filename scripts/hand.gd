@@ -11,6 +11,7 @@ var tower_scene := preload('res://resources/nodes/tower.tscn')
 @export var place_block : Node2D
 @export var place_block_area : Area2D
 @export var place_block_tower : Sprite2D
+@export var hover_card : CardSprite
 
 var focused : CardInHand
 var selected : CardInHand
@@ -55,6 +56,8 @@ func add_card_global(card : Card, global_pos := Vector2.ZERO) -> void:
 
 func grab_focus(card : CardInHand) -> void:
 	focused = card
+	place_block.comps = focused.card.components
+	place_block.queue_redraw()
 	_update()
 
 
@@ -106,6 +109,22 @@ func clear() -> void:
 	for node in get_children():
 		if node is CardInHand:
 			node.queue_free()
+
+
+func hover(card : Card) -> void:
+	if not is_instance_valid(card):
+		return
+	hover_card.card = card
+	hover_card.position.x = (
+		112
+		if get_global_mouse_position().x > 640 else 
+		1168
+	)
+	hover_card.show()
+
+
+func end_hover() -> void:
+	hover_card.hide()
 
 
 func _update() -> void:

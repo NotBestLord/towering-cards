@@ -26,5 +26,5 @@ func _round_end() -> void:
 	pass
 
 
-func _draw() -> void:
+func _draw(_dt : Node2D) -> void:
 	pass

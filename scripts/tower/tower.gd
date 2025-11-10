@@ -73,6 +73,7 @@ func _on_mouse_exited() -> void:
 	outline.hide()
 	for comp in _get_components():
 		comp.hide()
+	Global.hand.end_hover()
 
 
 func _on_mouse_entered() -> void:
@@ -81,3 +82,4 @@ func _on_mouse_entered() -> void:
 	outline.show()
 	for comp in _get_components():
 		comp.show()
+	Global.hand.hover(card)

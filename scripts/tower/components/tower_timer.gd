@@ -18,10 +18,10 @@ func _round_end() -> void:
 		tower.queue_free()
 
 
-func _draw() -> void:
+func _draw(dt : Node2D) -> void:
 	var h := tower.card.sprite.get_height()
 	var pos := Vector2(-hourglass.get_width() / 2., -h - hourglass.get_height())
-	comp_node.draw_texture(hourglass, pos)
-	comp_node.draw_char_outline(font, Vector2(0, -h), "%d" % rounds, 8, 4, Color.BLACK)
-	comp_node.draw_char(font, Vector2(0, -h), "%d" % rounds, 8)
+	dt.draw_texture(hourglass, pos)
+	dt.draw_char_outline(font, Vector2(0, -h), "%d" % rounds, 8, 4, Color.BLACK)
+	dt.draw_char(font, Vector2(0, -h), "%d" % rounds, 8)
 	#comp_node.draw_style_box()

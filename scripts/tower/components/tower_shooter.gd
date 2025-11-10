@@ -48,9 +48,9 @@ func _tower_process(delta : float) -> void:
 			timer = 0
 
 
-func _draw() -> void:
+func _draw(dt : Node2D) -> void:
 	var r := tile_range * 16
-	comp_node.draw_circle(Vector2.ZERO, r - 1, Color(0.4,0.4,0.4,0.6), false, 2)
+	dt.draw_circle(Vector2.ZERO, r - 1, Color(0.4,0.4,0.4,0.6), false, 2)
 
 
 func get_target() -> EnemyNode:

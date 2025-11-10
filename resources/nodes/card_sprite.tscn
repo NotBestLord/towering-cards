@@ -50,12 +50,13 @@ scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_rtfls")
 
 [node name="TileMap" type="TileMapLayer" parent="."]
+position = Vector2(0, -24)
 tile_map_data = PackedByteArray("AAD8//7/AAAFAAAAAAD8////AAAFAAEAAAD8/wAAAAAFAAIAAAD9//7/AAAGAAAAAAD9////AAAGAAEAAAD9/wAAAAAGAAIAAAD+//7/AAAGAAAAAAD+////AAAGAAEAAAD+/wAAAAAGAAIAAAD///7/AAAGAAAAAAD/////AAAGAAEAAAD//wAAAAAGAAIAAAAAAP7/AAAGAAAAAAAAAP//AAAGAAEAAAAAAAAAAAAGAAIAAAABAP7/AAAGAAAAAAABAP//AAAGAAEAAAABAAAAAAAGAAIAAAACAP7/AAAGAAAAAAACAP//AAAGAAEAAAACAAAAAAAGAAIAAAADAP7/AAAHAAAAAAADAP//AAAHAAEAAAADAAAAAAAHAAIAAAA=")
 tile_set = ExtResource("8_6n3tq")
 collision_enabled = false
 
 [node name="TowerSprite" type="Sprite2D" parent="."]
-position = Vector2(0, -13)
+position = Vector2(0, -37)
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_5382k")
 offset = Vector2(0, -7)
@@ -87,8 +88,8 @@ vertical_alignment = 1
 
 [node name="BottomPanel" type="NinePatchRect" parent="."]
 offset_left = -90.0
-offset_top = 12.000004
-offset_bottom = 65.0
+offset_top = -9.999996
+offset_bottom = 54.0
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_5qrte")
 patch_margin_left = 16
@@ -121,7 +122,7 @@ Dissipates after 3 Rounds"
 scroll_active = false
 
 [node name="Energy" type="Sprite2D" parent="."]
-position = Vector2(0, 12)
+position = Vector2(0, -11)
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_6n3tq")
 

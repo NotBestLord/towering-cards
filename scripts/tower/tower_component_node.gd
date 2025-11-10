@@ -34,7 +34,7 @@ func _round_end() -> void:
 
 func _draw() -> void:
 	assert(is_instance_valid(component), "Component Invalid")
-	component._draw()
+	component._draw(self)
 
 
 func get_tower() -> TowerNode:
