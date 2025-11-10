@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Card" load_steps=8 format=3 uid="uid://dmr0lr45cwy8s"]
+
+[ext_resource type="Script" uid="uid://ca3h7tctf7wdk" path="res://scripts/tower/tower_component.gd" id="1_1v1x8"]
+[ext_resource type="PackedScene" uid="uid://vvo64iak25aj" path="res://resources/nodes/projectiles/magic_missile.tscn" id="2_1v1x8"]
+[ext_resource type="Script" uid="uid://dggsh84httqh6" path="res://scripts/tower/components/tower_shooter.gd" id="3_di243"]
+[ext_resource type="Script" uid="uid://o601mm4qckiy" path="res://scripts/card.gd" id="4_3qat4"]
+[ext_resource type="Texture2D" uid="uid://bb7huyc3av4l8" path="res://assets/textures/characters/human_2.png" id="5_f5a27"]
+
+[sub_resource type="Resource" id="Resource_xjba8"]
+script = ExtResource("3_di243")
+tile_range = 2.5
+bullet = ExtResource("2_1v1x8")
+bullet_count = 2
+bullet_delete_after = 2.0
+bullet_speed = 96.0
+bullet_multishot_spread = 8.0
+metadata/_custom_type_script = "uid://dggsh84httqh6"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5382k"]
+atlas = ExtResource("5_f5a27")
+region = Rect2(18, 18, 18, 18)
+
+[resource]
+script = ExtResource("4_3qat4")
+name = "Mage Merman"
+description = "Shoot magic missiles at nearby enemies"
+sprite = SubResource("AtlasTexture_5382k")
+type = 2
+cost = 5
+components = Array[ExtResource("1_1v1x8")]([SubResource("Resource_xjba8")])
+metadata/_custom_type_script = "uid://o601mm4qckiy"

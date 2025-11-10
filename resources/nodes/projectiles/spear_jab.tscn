@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdog7212pkdne"]
+
+[ext_resource type="Script" uid="uid://c1na05dac080c" path="res://scripts/bullet.gd" id="1_tgswc"]
+[ext_resource type="Texture2D" uid="uid://xqsq0llm0soh" path="res://assets/textures/projectiles/spear_jab.png" id="2_tgswc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ei03i"]
+size = Vector2(16, 8)
+
+[node name="SpearJab" type="Area2D"]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_tgswc")
+rotation_mode = 1
+metadata/_custom_type_script = "uid://c1na05dac080c"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.5, 0)
+texture = ExtResource("2_tgswc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_ei03i")

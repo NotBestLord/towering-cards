@@ -1,12 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://dc2ou50k7bnoa"]
+[gd_scene load_steps=6 format=3 uid="uid://dc2ou50k7bnoa"]
 
 [ext_resource type="PackedScene" uid="uid://by0e5xy27velf" path="res://resources/nodes/card_sprite.tscn" id="1_1a7xu"]
 [ext_resource type="Script" uid="uid://c46a70po7uq3t" path="res://scripts/card_in_hand.gd" id="1_6diq7"]
+[ext_resource type="Texture2D" uid="uid://b3psuimyrex0n" path="res://assets/textures/cards/pixelCardAssest_V01.png" id="3_sljpm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ak5aw"]
+atlas = ExtResource("3_sljpm")
+region = Rect2(14, 476, 94, 122)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vyc88"]
+atlas = ExtResource("3_sljpm")
+region = Rect2(115, 473, 100, 128)
 
 [node name="CardInHand" type="Node2D"]
 script = ExtResource("1_6diq7")
 
 [node name="CardSprite" parent="." instance=ExtResource("1_1a7xu")]
+
+[node name="CardBack" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 0.19215687, 0, 1)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_ak5aw")
+
+[node name="Border" type="Sprite2D" parent="CardBack"]
+self_modulate = Color(1, 0.19215687, 0, 1)
+texture = SubResource("AtlasTexture_vyc88")
 
 [node name="Area2D" type="Control" parent="."]
 layout_mode = 3

@@ -68,12 +68,16 @@ func _update() -> void:
 
 
 func _on_mouse_exited() -> void:
+	if not is_visible_in_tree():
+		return
 	outline.hide()
 	for comp in _get_components():
 		comp.hide()
 
 
 func _on_mouse_entered() -> void:
+	if not is_visible_in_tree():
+		return
 	outline.show()
 	for comp in _get_components():
 		comp.show()

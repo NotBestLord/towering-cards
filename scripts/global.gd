@@ -1,6 +1,11 @@
 extends Node
 
 
+var deck : Array[Card] = [
+	load("res://resources/cards/mage_merman.tres"),
+	load("res://resources/cards/spear_merman.tres"),
+]
+
 var game_ongoing := true ## TBD, chaneg after map implemtend
 var hand : Hand
 var round_index := 0

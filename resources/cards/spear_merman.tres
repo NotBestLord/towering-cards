@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Card" load_steps=8 format=3 uid="uid://cyvg4ajt0ww7v"]
+
+[ext_resource type="Script" uid="uid://ca3h7tctf7wdk" path="res://scripts/tower/tower_component.gd" id="1_g70re"]
+[ext_resource type="PackedScene" uid="uid://cdog7212pkdne" path="res://resources/nodes/projectiles/spear_jab.tscn" id="2_g70re"]
+[ext_resource type="Script" uid="uid://dggsh84httqh6" path="res://scripts/tower/components/tower_shooter.gd" id="3_ww0fq"]
+[ext_resource type="Script" uid="uid://o601mm4qckiy" path="res://scripts/card.gd" id="5_cyn6j"]
+[ext_resource type="Texture2D" uid="uid://bb7huyc3av4l8" path="res://assets/textures/characters/human_2.png" id="6_g70re"]
+
+[sub_resource type="Resource" id="Resource_xjba8"]
+script = ExtResource("3_ww0fq")
+damage = 4.0
+attack_rate = 0.8
+bullet = ExtResource("2_g70re")
+bullet_delete_after = 0.25
+bullet_speed = 128.0
+bullet_pierce = -1
+metadata/_custom_type_script = "uid://dggsh84httqh6"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5382k"]
+atlas = ExtResource("6_g70re")
+region = Rect2(36, 19, 17, 18)
+
+[resource]
+script = ExtResource("5_cyn6j")
+name = "Spear Merman"
+description = "Attacks with a spear at nearby enemies"
+sprite = SubResource("AtlasTexture_5382k")
+type = 2
+cost = 3
+components = Array[ExtResource("1_g70re")]([SubResource("Resource_xjba8")])
+metadata/_custom_type_script = "uid://o601mm4qckiy"

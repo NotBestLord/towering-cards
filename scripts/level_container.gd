@@ -24,11 +24,13 @@ func _process(delta: float) -> void:
 	if executing_commands.is_empty() and round_commands.is_empty() and Global.living_enemies.is_empty():
 		if Global.round_ongoing:
 			Global.round_ongoing = false
-			Global.energy = clamp(Global.energy + 2, 0, Global.max_energy)
-			for tower in Global.placed_towers:
-				tower.end_round()
 			if Global.round_index >= Global.max_round:
 				print("END LEVEL!!!!") ## TBD
+			else:
+				Global.energy = clamp(Global.energy + 2, 0, Global.max_energy)
+				for tower in Global.placed_towers:
+					tower.end_round()
+				CardPile.current.pull_card()
 		return
 	
 	if executing_commands.is_empty():
@@ -79,6 +81,9 @@ func load_level(level : Level) -> void:
 	Global.max_round = loaded_level.get_round_count()
 	Global.energy = 10 ## TBD
 	Global.hand.clear()
+	CardPile.current.load_deck()
+	for _i in 4:
+		CardPile.current.pull_card()
 	loaded_map = level.map.instantiate()
 	add_child(loaded_map)
 	move_child(loaded_map, 0)

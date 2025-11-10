@@ -28,6 +28,7 @@ const TYPE_COLORS := {
 @export_multiline var description : String
 @export var sprite : Texture2D
 @export var type : Type
+@export_enum("Tower", "Ability") var function := 0
 
 @export_category("Mechanics")
 @export var cost := 1

@@ -64,6 +64,8 @@ func _notification(what: int) -> void:
 
 
 func hit_check() -> void:
+	if pierce == -1:
+		return
 	pierce -= 1
 	if pierce < 0:
 		queue_free()

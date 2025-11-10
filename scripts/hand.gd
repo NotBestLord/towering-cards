@@ -18,11 +18,6 @@ var selected : CardInHand
 
 func _ready() -> void:
 	Global.hand = self
-	await get_tree().process_frame## TBD
-	add_card(load("res://resources/cards/fire_spirit.tres"))
-	add_card(load("res://resources/cards/pyromancer.tres"))
-	add_card(load("res://resources/cards/weak_child.tres"))
-	add_card(load("res://resources/cards/strong_child.tres"))
 
 
 func _process(_delta: float) -> void:
