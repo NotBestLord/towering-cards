@@ -27,5 +27,6 @@ description = "Attacks with a spear at nearby enemies"
 sprite = SubResource("AtlasTexture_5382k")
 type = 2
 cost = 3
+tags = Array[int]([0, 4])
 components = Array[ExtResource("1_g70re")]([SubResource("Resource_xjba8")])
 metadata/_custom_type_script = "uid://o601mm4qckiy"

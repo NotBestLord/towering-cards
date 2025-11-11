@@ -12,6 +12,15 @@ enum Type {
 }
 
 
+enum Tag {
+	ATTACK,
+	DEFEND,
+	SUMMONER,
+	TEMPORARY,
+	MELEE,
+}
+
+
 const TYPE_COLORS := {
 	Type.HUMAN: Color.LIGHT_YELLOW,
 	Type.FIRE: Color.ORANGE_RED,
@@ -32,6 +41,7 @@ const TYPE_COLORS := {
 
 @export_category("Mechanics")
 @export var cost := 1
+@export var tags : Array[Tag]
 @export var components : Array[TowerComponent]
 
 

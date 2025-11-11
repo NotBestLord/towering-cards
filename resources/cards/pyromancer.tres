@@ -75,5 +75,6 @@ Creates a Fire Spirit Card once every 3 Rounds"
 sprite = SubResource("AtlasTexture_esssn")
 type = 1
 cost = 5
+tags = Array[int]([0, 2])
 components = Array[ExtResource("1_mh308")]([SubResource("Resource_0byvv"), SubResource("Resource_778hw")])
 metadata/_custom_type_script = "uid://o601mm4qckiy"

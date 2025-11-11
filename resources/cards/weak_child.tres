@@ -22,6 +22,6 @@ script = ExtResource("5_86dgc")
 name = "Weak Child"
 description = "Weakly throws rocks at nearby enemies"
 sprite = SubResource("AtlasTexture_5382k")
-bg_color = Color(1, 0.8469907, 0.8136013, 1)
+tags = Array[int]([0])
 components = Array[ExtResource("1_sftc8")]([SubResource("Resource_xjba8")])
 metadata/_custom_type_script = "uid://o601mm4qckiy"
