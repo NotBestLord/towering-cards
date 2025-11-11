@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8288a2v2oy68"]
+
+[ext_resource type="Script" uid="uid://bvd0alo6jelic" path="res://scripts/status_effect_node.gd" id="1_j6g1h"]
+[ext_resource type="Texture2D" uid="uid://ds7pn33u15i7e" path="res://assets/textures/icons/skull_icon.tres" id="2_pjyih"]
+[ext_resource type="FontFile" uid="uid://eia0y2w4qjtt" path="res://assets/fonts/PixelOperatorMono.ttf" id="3_mvml3"]
+
+[node name="StatusEffect" type="Control"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1_j6g1h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(24, 24)
+scale = Vector2(2, 2)
+texture = ExtResource("2_pjyih")
+
+[node name="Text" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("3_mvml3")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "1"
+horizontal_alignment = 2
+vertical_alignment = 2

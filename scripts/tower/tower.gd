@@ -12,10 +12,12 @@ const SPRITE_OFFSET := 4.
 @onready var shape := $Area2D/CollisionShape2D
 @onready var animator := $AnimationPlayer
 
+var status_effects : Array[StatusEffect] = []
 var flip_h := false :
 	set(value):
 		flip_h = value
 		sprite_container.scale.x = -1 if flip_h else 1
+var is_mouse_inside := false
 
 
 func _ready() -> void:
@@ -70,9 +72,17 @@ func _update() -> void:
 	shape.shape.size = card.sprite.get_size()
 
 
+func refresh_hover() -> void:
+	if not is_visible_in_tree():
+		return
+	if is_mouse_inside:
+		Global.hand.hover(self)
+
+
 func _on_mouse_exited() -> void:
 	if not is_visible_in_tree():
 		return
+	is_mouse_inside = false
 	outline.hide()
 	for comp in _get_components():
 		comp.hide()
@@ -82,7 +92,8 @@ func _on_mouse_exited() -> void:
 func _on_mouse_entered() -> void:
 	if not is_visible_in_tree():
 		return
+	is_mouse_inside = true
 	outline.show()
 	for comp in _get_components():
 		comp.show()
-	Global.hand.hover(card)
+	Global.hand.hover(self)

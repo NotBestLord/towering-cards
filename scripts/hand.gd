@@ -4,6 +4,7 @@ extends Node2D
 
 var card_sprite_scene := preload('res://resources/nodes/card_in_hand.tscn')
 var tower_scene := preload('res://resources/nodes/tower.tscn')
+var status_effect_node_scene := preload("res://resources/nodes/status_effect_node.tscn")
 
 
 ## Seperate additional to half of card width
@@ -111,15 +112,34 @@ func clear() -> void:
 			node.queue_free()
 
 
-func hover(card : Card) -> void:
-	if not is_instance_valid(card):
+func hover(tower : TowerNode) -> void:
+	if not is_instance_valid(tower.card):
 		return
-	hover_card.card = card
+	hover_card.card = tower.card
+	var hover_status_panel : Control = hover_card.get_node("Panel")
+	var hover_status_cont : Control = hover_status_panel.get_node("VBoxContainer")
 	hover_card.position.x = (
 		112
 		if get_global_mouse_position().x > 640 else 
 		1168
 	)
+	hover_status_panel.position.x = (
+		108
+		if get_global_mouse_position().x > 640 else 
+		-156
+	)
+	
+	for node in hover_status_cont.get_children():
+		node.queue_free()
+	var child_count := 0
+	
+	for eff in tower.status_effects:
+		var node := status_effect_node_scene.instantiate()
+		node.status_effect = eff
+		hover_status_cont.add_child(node)
+		child_count += 1
+	
+	hover_status_panel.visible = child_count > 0
 	hover_card.show()
 
 

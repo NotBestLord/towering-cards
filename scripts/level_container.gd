@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 			if Global.round_index >= Global.max_round:
 				print("END LEVEL!!!!") ## TBD
 			else:
-				Global.energy = clamp(Global.energy + 2, 0, Global.max_energy)
+				Global.energy = clamp(Global.energy + 1, 0, Global.max_energy)
 				for tower in Global.placed_towers:
 					tower.end_round()
 				CardPile.current.pull_card()
