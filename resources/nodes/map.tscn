@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://bslwgcs12hjhx"]
+[gd_scene load_steps=7 format=4 uid="uid://bslwgcs12hjhx"]
 
 [ext_resource type="Script" uid="uid://cbvvlpmmsrvjk" path="res://scripts/map.gd" id="1_ci8fe"]
 [ext_resource type="TileSet" uid="uid://bfrqjd8esacjo" path="res://assets/tileset.tres" id="1_kgvok"]
 [ext_resource type="PackedScene" uid="uid://d1owhmep8u1oa" path="res://resources/nodes/map_level_node.tscn" id="2_n0r7x"]
 [ext_resource type="Resource" uid="uid://c6ot0me0ujo26" path="res://resources/levels/tutorial.tres" id="3_ltqiu"]
 [ext_resource type="Resource" uid="uid://b0icn0ku6iwwn" path="res://resources/levels/fire_entrance.tres" id="5_ee0s3"]
+[ext_resource type="Resource" uid="uid://c003uitj7wlh8" path="res://resources/levels/forest_1.tres" id="5_gwsuv"]
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_ci8fe")
@@ -32,7 +33,11 @@ self_modulate = Color(1, 1, 1, 0.47058824)
 
 [node name="Tutorial" parent="Levels" node_paths=PackedStringArray("connected_levels") instance=ExtResource("2_n0r7x")]
 level = ExtResource("3_ltqiu")
-connected_levels = [NodePath("../FireEntrance")]
+connected_levels = [NodePath("../FireEntrance"), NodePath("../Forest1")]
+
+[node name="Forest1" parent="Levels" instance=ExtResource("2_n0r7x")]
+position = Vector2(129, 23)
+level = ExtResource("5_gwsuv")
 
 [node name="FireEntrance" parent="Levels" instance=ExtResource("2_n0r7x")]
 position = Vector2(40, -79)
