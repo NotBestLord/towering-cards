@@ -18,13 +18,26 @@ var energy := 10.
 var max_energy := 10.
 var living_enemies : Array[EnemyNode] = []
 var placed_towers : Array[TowerNode] = []
+var level_name := ""
 
+var completed_levels : Array[String] = []
 
 var enemies : Dictionary[String, Enemy] = {}
 
 
 func _ready() -> void:
 	_load_enemies()
+
+
+func enter_level(map_node : MapLevelNode) -> void:
+	LevelContainer.current.load_level(map_node.level)
+	level_name = map_node.name
+
+
+func exit_level(was_cleared := false) -> void:
+	if was_cleared:
+		if not completed_levels.has(level_name):
+			completed_levels.append(level_name)
 
 
 func _load_enemies() -> void:
