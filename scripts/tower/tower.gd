@@ -86,7 +86,7 @@ func _on_mouse_exited() -> void:
 	outline.hide()
 	for comp in _get_components():
 		comp.hide()
-	Global.hand.end_hover()
+	Global.hand.end_hover(self)
 
 
 func _on_mouse_entered() -> void:

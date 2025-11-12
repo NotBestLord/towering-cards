@@ -7,13 +7,15 @@
 script = ExtResource("2_jkoxu")
 map = ExtResource("1_5p5ww")
 rounds = "::
-	enemy small_imp 10 10
+	enemy small_imp 20 10
 ::
-	enemy small_imp 15 10
+	enemy imp 10 10
 ::
-	enemy small_demon 10 10
+	enemy imp 15 10
 ::
-	enemy small_devil 5 10
+	enemy small_imp 20 10
+	enemy imp 10 10 parallel
 ::
-	enemy small_devil 10 10"
+	enemy small_imp 25 10
+	enemy imp 15 10 parallel"
 metadata/_custom_type_script = "uid://c71pnsad0hxfe"

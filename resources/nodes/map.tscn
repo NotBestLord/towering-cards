@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://bslwgcs12hjhx"]
+[gd_scene load_steps=9 format=4 uid="uid://bslwgcs12hjhx"]
 
 [ext_resource type="Script" uid="uid://cbvvlpmmsrvjk" path="res://scripts/map.gd" id="1_ci8fe"]
 [ext_resource type="TileSet" uid="uid://bfrqjd8esacjo" path="res://assets/tileset.tres" id="1_kgvok"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://c6ot0me0ujo26" path="res://resources/levels/tutorial.tres" id="3_ltqiu"]
 [ext_resource type="Resource" uid="uid://b0icn0ku6iwwn" path="res://resources/levels/fire_entrance.tres" id="5_ee0s3"]
 [ext_resource type="Resource" uid="uid://c003uitj7wlh8" path="res://resources/levels/forest_1.tres" id="5_gwsuv"]
+[ext_resource type="Resource" uid="uid://cge5poee4wpsm" path="res://resources/levels/fire_1.tres" id="6_n35ic"]
 [ext_resource type="Texture2D" uid="uid://b270faja78gkm" path="res://assets/textures/icons/Transparent border/panel-transparent-border-018.png" id="7_3exka"]
 
 [node name="Map" type="Node2D"]
@@ -41,9 +42,30 @@ visible_by_def = true
 position = Vector2(129, 23)
 level = ExtResource("5_gwsuv")
 
-[node name="FireEntrance" parent="Levels" instance=ExtResource("2_n0r7x")]
+[node name="Fire1" parent="Levels" instance=ExtResource("2_n0r7x")]
+position = Vector2(64, -152)
+level = ExtResource("6_n35ic")
+
+[node name="Line2D" type="Line2D" parent="Levels/Fire1"]
+show_behind_parent = true
+position = Vector2(0, -8)
+points = PackedVector2Array(-24, 81, -24, 64)
+
+[node name="Line2D2" type="Line2D" parent="Levels/Fire1"]
+show_behind_parent = true
+position = Vector2(0, -8)
+points = PackedVector2Array(-56, 16, -56, 26, -27, 26, 0, 8)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Levels/Fire1"]
+top_level = true
+position = Vector2(64, -160)
+tile_map_data = PackedByteArray("AAD+/wMAAAAMAAsAAAD8/wAAAAAMAAsAAAA=")
+tile_set = ExtResource("1_kgvok")
+
+[node name="FireEntrance" parent="Levels" node_paths=PackedStringArray("wireless_connected_levels") instance=ExtResource("2_n0r7x")]
 position = Vector2(40, -79)
 level = ExtResource("5_ee0s3")
+wireless_connected_levels = [NodePath("../Fire1")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

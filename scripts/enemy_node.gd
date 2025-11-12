@@ -31,6 +31,7 @@ func _process(delta: float) -> void:
 	if next == position:
 		Global.health -= health
 		## TBD play anim / sound
+		Global.living_enemies.erase(self)
 		queue_free()
 		if Global.health <= 0:
 			Global.exit_level(false)

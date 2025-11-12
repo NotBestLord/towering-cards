@@ -24,6 +24,7 @@ func _process(delta: float) -> void:
 			if Global.round_index >= Global.max_round:
 				Global.exit_level(true)
 			else:
+				Global.round_ongoing = false
 				Global.energy = clamp(Global.energy + 1, 0, Global.max_energy)
 				for tower in Global.placed_towers:
 					tower.end_round()
@@ -48,8 +49,8 @@ func _process(delta: float) -> void:
 			var amount := comm_args[2].to_int()
 			var duration := comm_args[3].to_float()
 			var rate := duration / amount
-			if t >= rate:
-				t = 0
+			while t >= rate:
+				t -= rate
 				var enemy : Enemy = Global.enemies.get(comm_args[1], null)
 				assert(is_instance_valid(enemy), "Invalid Enemy")
 				spawn_enemy(enemy)

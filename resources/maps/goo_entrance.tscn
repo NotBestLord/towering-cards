@@ -10,7 +10,7 @@ _data = {
 }
 point_count = 15
 
-[node name="TutorialMap" type="Node2D"]
+[node name="Map" type="Node2D"]
 z_index = -1
 
 [node name="TileMap" type="TileMapLayer" parent="."]

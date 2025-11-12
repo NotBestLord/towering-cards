@@ -16,6 +16,7 @@ var status_effect_node_scene := preload("res://resources/nodes/status_effect_nod
 
 var focused : CardInHand
 var selected : CardInHand
+var hovered : TowerNode
 
 
 func _ready() -> void:
@@ -115,6 +116,7 @@ func clear() -> void:
 func hover(tower : TowerNode) -> void:
 	if not is_instance_valid(tower.card):
 		return
+	hovered = tower
 	hover_card.card = tower.card
 	var hover_status_panel : Control = hover_card.get_node("Panel")
 	var hover_status_cont : Control = hover_status_panel.get_node("VBoxContainer")
@@ -143,8 +145,10 @@ func hover(tower : TowerNode) -> void:
 	hover_card.show()
 
 
-func end_hover() -> void:
-	hover_card.hide()
+func end_hover(target : TowerNode) -> void:
+	if hovered == target:
+		hover_card.hide()
+		hovered = null
 
 
 func _update() -> void:

@@ -8,7 +8,7 @@ var deck : Array[Card] = [
 	load('res://resources/cards/fire_spirit.tres')
 ]
 
-var game_ongoing := true ## TBD, chaneg after map implemtend
+var game_ongoing := false
 var hand : Hand
 var round_index := 0
 var max_round := 0
@@ -42,6 +42,9 @@ func exit_level(was_cleared := false) -> void:
 	for node in placed_towers:
 		node.queue_free()
 	Global.round_ongoing = false
+	Global.game_ongoing = false
+	
+	Global.hand.clear()
 	
 	if was_cleared:
 		if not completed_levels.has(level_name):
