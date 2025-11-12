@@ -21,9 +21,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if executing_commands.is_empty() and round_commands.is_empty() and Global.living_enemies.is_empty():
 		if Global.round_ongoing:
-			Global.round_ongoing = false
 			if Global.round_index >= Global.max_round:
-				print("END LEVEL!!!!") ## TBD
+				Global.exit_level(true)
 			else:
 				Global.energy = clamp(Global.energy + 1, 0, Global.max_energy)
 				for tower in Global.placed_towers:

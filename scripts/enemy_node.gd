@@ -32,6 +32,8 @@ func _process(delta: float) -> void:
 		Global.health -= health
 		## TBD play anim / sound
 		queue_free()
+		if Global.health <= 0:
+			Global.exit_level(false)
 
 
 func _notification(what: int) -> void:

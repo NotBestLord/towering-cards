@@ -36,6 +36,13 @@ func enter_level(map_node : MapLevelNode) -> void:
 
 
 func exit_level(was_cleared := false) -> void:
+	LevelContainer.current.unload_level()
+	for node in living_enemies:
+		node.queue_free()
+	for node in placed_towers:
+		node.queue_free()
+	Global.round_ongoing = false
+	
 	if was_cleared:
 		if not completed_levels.has(level_name):
 			completed_levels.append(level_name)
