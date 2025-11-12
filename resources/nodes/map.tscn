@@ -37,4 +37,3 @@ connected_levels = [NodePath("../FireEntrance")]
 [node name="FireEntrance" parent="Levels" instance=ExtResource("2_n0r7x")]
 position = Vector2(40, -79)
 level = ExtResource("5_ee0s3")
-visible_by_def = true

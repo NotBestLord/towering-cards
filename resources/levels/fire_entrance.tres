@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Level" load_steps=3 format=3 uid="uid://b0icn0ku6iwwn"]
 
-[ext_resource type="PackedScene" uid="uid://bit4nsb7fdsua" path="res://resources/maps/forest_1.tscn" id="1_5p5ww"]
+[ext_resource type="PackedScene" uid="uid://b2vref651d6mo" path="res://resources/maps/fire_entrance.tscn" id="1_5p5ww"]
 [ext_resource type="Script" uid="uid://c71pnsad0hxfe" path="res://scripts/level.gd" id="2_jkoxu"]
 
 [resource]
