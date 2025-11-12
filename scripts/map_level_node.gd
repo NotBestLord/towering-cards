@@ -8,6 +8,7 @@ extends Node2D
 @export var visible_by_def := false
 
 var lines : Dictionary[MapLevelNode, Line2D] = {}
+var is_mouse_inside := false
 
 
 func _ready() -> void:
@@ -31,6 +32,14 @@ func _process(_delta: float) -> void:
 		lines[conn].visible = conn.visible
 
 
+func _input(event: InputEvent) -> void:
+	if not is_mouse_inside:
+		return
+	if event is InputEventMouseButton:
+		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			pass
+
+
 func _create_lines() -> void:
 	for conn in connected_levels:
 		var line := Line2D.new()
@@ -47,3 +56,11 @@ func _update() -> void:
 			visible = visible or Global.completed_levels.has(conn.name)
 		for conn in wireless_connected_levels:
 			visible = visible or Global.completed_levels.has(conn.name)
+
+
+func _on_area_2d_mouse_entered() -> void:
+	is_mouse_inside = true
+
+
+func _on_area_2d_mouse_exited() -> void:
+	is_mouse_inside = false

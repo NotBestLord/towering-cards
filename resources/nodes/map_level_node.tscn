@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1owhmep8u1oa"]
+[gd_scene load_steps=4 format=3 uid="uid://d1owhmep8u1oa"]
 
 [ext_resource type="Script" uid="uid://dowi2txp47wg8" path="res://scripts/map_level_node.gd" id="1_tcpum"]
 [ext_resource type="Script" uid="uid://cug7hbekyfo6k" path="res://addons/primitive_shapes/circle.gd" id="1_ttq6f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tcpum"]
+radius = 12.0
 
 [node name="MapLevelNode" type="Node2D"]
 script = ExtResource("1_tcpum")
@@ -10,3 +13,13 @@ script = ExtResource("1_tcpum")
 script = ExtResource("1_ttq6f")
 radius = 12.0
 metadata/_custom_type_script = "uid://cug7hbekyfo6k"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_tcpum")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
