@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://bslwgcs12hjhx"]
+[gd_scene load_steps=8 format=4 uid="uid://bslwgcs12hjhx"]
 
 [ext_resource type="Script" uid="uid://cbvvlpmmsrvjk" path="res://scripts/map.gd" id="1_ci8fe"]
 [ext_resource type="TileSet" uid="uid://bfrqjd8esacjo" path="res://assets/tileset.tres" id="1_kgvok"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://c6ot0me0ujo26" path="res://resources/levels/tutorial.tres" id="3_ltqiu"]
 [ext_resource type="Resource" uid="uid://b0icn0ku6iwwn" path="res://resources/levels/fire_entrance.tres" id="5_ee0s3"]
 [ext_resource type="Resource" uid="uid://c003uitj7wlh8" path="res://resources/levels/forest_1.tres" id="5_gwsuv"]
+[ext_resource type="Texture2D" uid="uid://b270faja78gkm" path="res://assets/textures/icons/Transparent border/panel-transparent-border-018.png" id="7_3exka"]
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_ci8fe")
@@ -34,6 +35,7 @@ self_modulate = Color(1, 1, 1, 0.47058824)
 [node name="Tutorial" parent="Levels" node_paths=PackedStringArray("connected_levels") instance=ExtResource("2_n0r7x")]
 level = ExtResource("3_ltqiu")
 connected_levels = [NodePath("../FireEntrance"), NodePath("../Forest1")]
+visible_by_def = true
 
 [node name="Forest1" parent="Levels" instance=ExtResource("2_n0r7x")]
 position = Vector2(129, 23)
@@ -42,3 +44,52 @@ level = ExtResource("5_gwsuv")
 [node name="FireEntrance" parent="Levels" instance=ExtResource("2_n0r7x")]
 position = Vector2(40, -79)
 level = ExtResource("5_ee0s3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MapNodeMenu" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/MapNodeMenu"]
+self_modulate = Color(0.07759205, 0.10495759, 0.07760104, 1)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -160.0
+offset_right = 300.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("7_3exka")
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+
+[node name="Start" type="Button" parent="CanvasLayer/MapNodeMenu/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.0
+offset_top = 28.0
+offset_right = 67.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start"
+
+[connection signal="pressed" from="CanvasLayer/MapNodeMenu/NinePatchRect/Start" to="." method="_on_start_pressed"]

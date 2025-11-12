@@ -37,7 +37,7 @@ func _input(event: InputEvent) -> void:
 		return
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-			pass
+			Map.current.pressed_node(self)
 
 
 func _create_lines() -> void:

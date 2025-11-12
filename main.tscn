@@ -56,7 +56,6 @@ y_sort_enabled = true
 script = ExtResource("2_4c57u")
 
 [node name="Map" parent="." instance=ExtResource("2_yaehf")]
-visible = false
 position = Vector2(16000, 0)
 
 [node name="PlaceBlock" type="Sprite2D" parent="."]

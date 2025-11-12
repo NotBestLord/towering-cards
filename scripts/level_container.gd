@@ -16,8 +16,6 @@ var executing_commands : Dictionary[String, Vector2] = {}
 
 func _ready() -> void:
 	current = self
-	await get_tree().process_frame ## TBD
-	load_level(load("res://resources/levels/forest_1.tres"))
 
 
 func _process(delta: float) -> void:

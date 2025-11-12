@@ -31,6 +31,7 @@ func _ready() -> void:
 
 func enter_level(map_node : MapLevelNode) -> void:
 	LevelContainer.current.load_level(map_node.level)
+	Map.current.hide()
 	level_name = map_node.name
 
 
@@ -38,6 +39,7 @@ func exit_level(was_cleared := false) -> void:
 	if was_cleared:
 		if not completed_levels.has(level_name):
 			completed_levels.append(level_name)
+	Map.current.show()
 
 
 func _load_enemies() -> void:
