@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bdfo2ktxggpi6"]
+[gd_scene load_steps=25 format=3 uid="uid://bdfo2ktxggpi6"]
 
 [ext_resource type="Script" uid="uid://b6ug6lso05ysb" path="res://scripts/level_container.gd" id="2_4c57u"]
 [ext_resource type="Texture2D" uid="uid://57vwbiskmsxk" path="res://assets/textures/icons/icons_tilemap.png" id="2_h2yge"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://cfyf5psoia2k6" path="res://scripts/tower_place_block.gd" id="3_vivmo"]
 [ext_resource type="Texture2D" uid="uid://b3psuimyrex0n" path="res://assets/textures/cards/pixelCardAssest_V01.png" id="5_7mycd"]
 [ext_resource type="Script" uid="uid://cpibx7br3x7jk" path="res://scripts/energy_bar.gd" id="5_272bh"]
-[ext_resource type="Script" uid="uid://dd8fn0tx1gajw" path="res://scripts/card_pile.gd" id="5_w48qg"]
 [ext_resource type="Script" uid="uid://dtvxeds64wmgf" path="res://scripts/hand.gd" id="6_7mycd"]
 [ext_resource type="FontFile" uid="uid://i02h8cy1ebax" path="res://assets/fonts/PixelOperator8.ttf" id="6_272bh"]
 [ext_resource type="PackedScene" uid="uid://by0e5xy27velf" path="res://resources/nodes/card_sprite.tscn" id="7_2cqfq"]
@@ -85,10 +84,6 @@ place_block_area = NodePath("../../PlaceBlock/Area2D")
 place_block_tower = NodePath("../../PlaceBlock/TowerSprite")
 hover_card = NodePath("../HoverCard")
 metadata/_custom_type_script = "uid://dtvxeds64wmgf"
-
-[node name="CardPile" type="Node2D" parent="CanvasLayer"]
-position = Vector2(1192, 612)
-script = ExtResource("5_w48qg")
 
 [node name="HoverCard" parent="CanvasLayer" instance=ExtResource("7_2cqfq")]
 visible = false

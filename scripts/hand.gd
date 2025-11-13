@@ -37,10 +37,16 @@ func _process(_delta: float) -> void:
 		else:
 			place_block.modulate = Color.WHITE
 
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			try_place_selected()
+
+
+func add_cards(cards : Array[Card]) -> void:
+	for card in cards:
+		add_card(card)
 
 
 func add_card(card : Card, pos := Vector2.ZERO) -> void:
@@ -99,7 +105,8 @@ func try_place_selected() -> void:
 	tower.card = selected.card
 	get_tree().root.add_child(tower)
 	tower.global_position = pos
-	selected.queue_free()
+	if selected.card.consumable:
+		selected.queue_free()
 	if focused == selected:
 		focused = null
 	selected = null

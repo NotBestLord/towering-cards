@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://by0e5xy27velf"]
+[gd_scene load_steps=16 format=4 uid="uid://by0e5xy27velf"]
 
 [ext_resource type="Script" uid="uid://dyp34aegyqmi" path="res://scripts/card_sprite.gd" id="1_kk3lg"]
 [ext_resource type="Texture2D" uid="uid://b3psuimyrex0n" path="res://assets/textures/cards/pixelCardAssest_V01.png" id="2_ui15i"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://d2v8ippkorc8k" path="res://assets/textures/characters/basic_1.png" id="6_rdapn"]
 [ext_resource type="FontFile" uid="uid://i02h8cy1ebax" path="res://assets/fonts/PixelOperator8.ttf" id="6_vo76q"]
 [ext_resource type="TileSet" uid="uid://bfrqjd8esacjo" path="res://assets/tileset.tres" id="8_6n3tq"]
+[ext_resource type="Texture2D" uid="uid://ox0vmhj4yfaf" path="res://assets/textures/icons/recycle.png" id="8_rtfls"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2bq8n"]
 atlas = ExtResource("2_ui15i")
@@ -113,7 +114,7 @@ mouse_filter = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_constants/line_separation = 2
 theme_override_constants/paragraph_separation = 6
-theme_override_constants/outline_size = 6
+theme_override_constants/outline_size = 4
 theme_override_fonts/normal_font = ExtResource("6_5qrte")
 theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
@@ -147,3 +148,8 @@ vertical_alignment = 1
 self_modulate = Color(1, 0.19215687, 0, 1)
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_hdd3a")
+
+[node name="Recycle" type="Sprite2D" parent="."]
+position = Vector2(70, -58)
+scale = Vector2(2, 2)
+texture = ExtResource("8_rtfls")

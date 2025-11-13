@@ -54,6 +54,7 @@ name = "Fire Spirit"
 description = "Shoots fireballs at nearby enemies
 Dissipates after 3 Rounds"
 sprite = SubResource("AtlasTexture_5382k")
+consumable = true
 components = Array[ExtResource("1_mh308")]([SubResource("Resource_xjba8"), SubResource("Resource_h42rt")])
 metadata/_custom_type_script = "uid://o601mm4qckiy"
 

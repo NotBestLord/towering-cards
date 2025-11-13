@@ -28,7 +28,6 @@ func _process(delta: float) -> void:
 				Global.energy = clamp(Global.energy + 1, 0, Global.max_energy)
 				for tower in Global.placed_towers:
 					tower.end_round()
-				CardPile.current.pull_card()
 		return
 	
 	if executing_commands.is_empty():
@@ -79,9 +78,7 @@ func load_level(level : Level) -> void:
 	Global.max_round = loaded_level.get_round_count()
 	Global.energy = 10 ## TBD
 	Global.hand.clear()
-	CardPile.current.load_deck()
-	for _i in 4:
-		CardPile.current.pull_card()
+	Global.hand.add_cards(Global.deck)
 	loaded_map = level.map.instantiate()
 	add_child(loaded_map)
 	move_child(loaded_map, 0)

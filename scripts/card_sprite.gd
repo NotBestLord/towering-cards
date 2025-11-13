@@ -19,3 +19,4 @@ func _update() -> void:
 	$Energy/EnergyLabel.text = "%d" % card.cost
 	$TowerSprite.texture = card.sprite
 	$TowerSprite.offset.y = -card.sprite.get_height() / 2. + 2
+	$Recycle.visible = not card.consumable

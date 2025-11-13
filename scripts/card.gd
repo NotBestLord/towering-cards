@@ -40,6 +40,7 @@ const TYPE_COLORS := {
 @export_enum("Tower", "Ability") var function := 0
 
 @export_category("Mechanics")
+@export var consumable := false
 @export var cost := 1
 @export var tags : Array[Tag]
 @export var components : Array[TowerComponent]

@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="Card" load_steps=10 format=3 uid="uid://brs0us6dwshep"]
+[gd_resource type="Resource" script_class="Card" load_steps=12 format=3 uid="uid://brs0us6dwshep"]
 
 [ext_resource type="Script" uid="uid://ca3h7tctf7wdk" path="res://scripts/tower/tower_component.gd" id="1_5382k"]
 [ext_resource type="PackedScene" uid="uid://b523p7uecn732" path="res://resources/nodes/projectiles/fire_bolt.tscn" id="2_8rf55"]
 [ext_resource type="Script" uid="uid://o601mm4qckiy" path="res://scripts/card.gd" id="2_n1crg"]
 [ext_resource type="Script" uid="uid://dggsh84httqh6" path="res://scripts/tower/components/tower_shooter.gd" id="2_rkdtr"]
 [ext_resource type="Script" uid="uid://dpdvntb86butj" path="res://scripts/tower/components/tower_timer.gd" id="3_8rf55"]
+[ext_resource type="Script" uid="uid://c72xn2gabtd55" path="res://scripts/tower/components/tower_return_card_to_deck.gd" id="5_0byvv"]
 [ext_resource type="Texture2D" uid="uid://d2v8ippkorc8k" path="res://assets/textures/characters/basic_1.png" id="5_1ijhb"]
 
 [sub_resource type="Resource" id="Resource_xjba8"]
@@ -27,6 +28,10 @@ script = ExtResource("3_8rf55")
 rounds = 3
 metadata/_custom_type_script = "uid://dpdvntb86butj"
 
+[sub_resource type="Resource" id="Resource_y6kvw"]
+script = ExtResource("5_0byvv")
+metadata/_custom_type_script = "uid://c72xn2gabtd55"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_5382k"]
 atlas = ExtResource("5_1ijhb")
 region = Rect2(73, 0, 15, 18)
@@ -38,6 +43,7 @@ description = "Shoots firebolts at nearby enemies
 Dissipates after 3 Rounds"
 sprite = SubResource("AtlasTexture_5382k")
 type = 1
+consumable = true
 tags = Array[int]([0, 3])
-components = Array[ExtResource("1_5382k")]([SubResource("Resource_xjba8"), SubResource("Resource_h42rt")])
+components = Array[ExtResource("1_5382k")]([SubResource("Resource_xjba8"), SubResource("Resource_h42rt"), SubResource("Resource_y6kvw")])
 metadata/_custom_type_script = "uid://o601mm4qckiy"
