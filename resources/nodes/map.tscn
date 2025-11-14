@@ -31,7 +31,7 @@ collision_enabled = false
 zoom = Vector2(2, 2)
 
 [node name="Levels" type="CanvasGroup" parent="."]
-self_modulate = Color(1, 1, 1, 0.47058824)
+self_modulate = Color(1, 1, 1, 0.6)
 
 [node name="Tutorial" parent="Levels" node_paths=PackedStringArray("connected_levels") instance=ExtResource("2_n0r7x")]
 level = ExtResource("3_ltqiu")
@@ -39,7 +39,7 @@ connected_levels = [NodePath("../FireEntrance"), NodePath("../Forest1")]
 visible_by_def = true
 
 [node name="Forest1" parent="Levels" instance=ExtResource("2_n0r7x")]
-position = Vector2(129, 23)
+position = Vector2(112, 31)
 level = ExtResource("5_gwsuv")
 
 [node name="Fire1" parent="Levels" instance=ExtResource("2_n0r7x")]
@@ -57,10 +57,14 @@ position = Vector2(0, -8)
 points = PackedVector2Array(-56, 16, -56, 26, -27, 26, 0, 8)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Levels/Fire1"]
-top_level = true
-position = Vector2(64, -160)
+z_index = 1
+position = Vector2(0, -8)
 tile_map_data = PackedByteArray("AAD+/wMAAAAMAAsAAAD8/wAAAAAMAAsAAAA=")
 tile_set = ExtResource("1_kgvok")
+
+[node name="Fire2" parent="Levels" node_paths=PackedStringArray("connected_levels") instance=ExtResource("2_n0r7x")]
+position = Vector2(64, -206)
+connected_levels = [NodePath("../Fire1")]
 
 [node name="FireEntrance" parent="Levels" node_paths=PackedStringArray("wireless_connected_levels") instance=ExtResource("2_n0r7x")]
 position = Vector2(40, -79)
